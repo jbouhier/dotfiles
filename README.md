@@ -1,2 +1,4 @@
-# conf
-Linux configuration files (.bashrc, vimrc ...etc)
+# Conf
+
+Here are my configurations files  
+Feel free to try them out  
