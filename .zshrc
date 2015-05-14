@@ -96,13 +96,4 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LC_TYPE=en_US.UTF-8
 
-# Emacs mode
-bindkey -e
-
-# Vi mode
-bindkey -v
-
-
-
-
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+#alias ohmyzsh="mate ~/.oh-my-zsh"
