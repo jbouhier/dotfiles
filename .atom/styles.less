@@ -1,0 +1,37 @@
+/*
+ * Your Stylesheet
+ *
+ * This stylesheet is loaded when Atom starts up and is reloaded automatically
+ * when it is changed.
+ *
+ * If you are unfamiliar with LESS, you can read more about it here:
+ * http://www.lesscss.org
+ */
+
+// Cursor
+atom-text-editor.editor .is-focused .cursors .cursor {
+  opacity: 1;
+  border-width: 2px;
+}
+
+// Font Operator Mono + Theme Ocean Next theme
+// atom-workspace,
+atom-text-editor {
+    font-family: "Operator Mono";
+    font-size: 15px;
+    font-weight: normal;
+    line-height: 1.7;
+}
+
+atom-text-editor.editor {
+    .syntax--entity.syntax--other.syntax--attribute-name {
+        font-style: italic;
+    }
+    .comment {
+      font-style: italic;
+    }
+}
+
+// atom-panel.tool-panel {
+//     font-size: 0.88em;
+// }
