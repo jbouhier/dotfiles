@@ -1,0 +1,35 @@
+[user]
+	name = Jean-Baptiste Bouhier
+	email = jb.bouhier@gmail.com
+[credential]
+	helper = osxkeychain
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+	pu = push -u
+	p = push
+	unstage = reset HEAD --
+	last = log -1 HEAD
+	fix = reset --soft HEAD~1
+	undo-commit = reset --soft HEAD^
+	xif = revert HEAD
+	ll = log --oneline
+	hlog = log origin/master..HEAD --oneline
+	lol = log --graph --oneline --decorate --abbrev-commit
+	lola = log --graph --oneline --decorate --abbrev-commit --all
+	ls = ls-files
+	ru = remote update --prune origin
+	r = branch -r
+	# get remote br: checkout -b <branch> --track <remote>/<branch>
+	hdiff = diff origin/master..HEAD
+	cdiff = diff --cached
+# [http]
+# 	proxy = http://172.16.35.1:8080
+# [https]
+# 	proxy = http://172.16.35.1:8080
+[push]
+	default = simple
+[url "https://"]
+	insteadOf = git://
