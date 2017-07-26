@@ -1,4 +1,5 @@
 # Path to your oh-my-zsh installation.
+#
 export ZSH=/Users/synxs/.oh-my-zsh
 
 # Set name of the theme to load.
@@ -8,6 +9,7 @@ export ZSH=/Users/synxs/.oh-my-zsh
 ZSH_THEME="robbyrussell"
 # ZSH_THEME="agnoster"
 # ZSH_THEME="powerlevel9k/powerlevel9k"
+# ZSH_THEME="random"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -47,12 +49,19 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git svn colored-man colorize github jira vagrant virutalenv pip python brew osx zsh-syntax-highlighting symfony2 xcode ruby)
+plugins=(git svn colored-man colorize github vagrant virutalenv pip python brew osx zsh-syntax-highlighting symfony2 xcode ruby)
 
 # User configuration
 
-export PATH="/usr/local/opt/php56/bin:/Users/synxs/.rvm/gems/ruby-2.2-head/bin:/Users/synxs/.rvm/gems/ruby-2.2-head@global/bin:/Users/synxs/.rvm/rubies/ruby-2.2-head/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin:/Users/synxs/.rvm/bin=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/usr/local/Cellar/vim/"
+export PATH="$PATH:/usr/local/opt/php56/bin:/Users/synxs/.rvm/gems/ruby-2.2-head/bin:/Users/synxs/.rvm/gems/ruby-2.2-head@global/bin:/Users/synxs/.rvm/rubies/ruby-2.2-head/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin:/Users/synxs/.rvm/bin=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/usr/local/Cellar/vim/:/usr/local/bin:/Users/synxs/.node/lib/node_modules/bower/bin:/Users/synxs/.node/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
+
+# Android SDK
+export ANDROID_HOME="$HOME/Development/android-sdk-macosx"
+export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+
+# Rust
+export PATH="$HOME/.cargo/bin:$PATH"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -87,13 +96,39 @@ alias ll='ls -lh'
 alias la='ls -la'
 alias rf='rm -rf'
 alias bd='cd /usr/local/Cellar/'
+alias d='du -sh'
 
 alias e='emacs -nw'
 alias ej='rm -f *~'
+
+alias gc='gcc-7'
+alias svni='svn log --verbose -r'
+alias spot='vi Library/Application\ Support/Spotify/prefs'
+alias npmc='npm config edit --global'
+alias gitc='git config --global --edit'
+alias ge='git config --edit'
+alias ld='adb devices'
+alias api='cd /Users/synxs/etna/gpe/project/boxeapp-api'
+alias app='cd /Users/synxs/etna/gpe/project/master-mobileApp'
+alias site='cd ~/etna/gpe/project/site_boxeapp'
+alias and='cd ~/AndroidStudioProjects/Drawy'
+alias nc='npm-check -gu'
+alias bc='brew update'
+alias bcc='brew cleanup'
+alias bu='brew upgrade'
+alias ng2='cd ~/projects/1-languages/js/ng2-first'
+alias p='python'
+alias p3='python3'
 
 export LANGUAGE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LC_TYPE=en_US.UTF-8
+export GOPATH=/Users/synxs/gopath
+
+alias bower='noglob bower'
 
 #alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# Homebrew
+export HOMEBREW_GITHUB_API_TOKEN=a3d39371749858651af469cd9ac0083d752d752f
