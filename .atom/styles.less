@@ -17,21 +17,35 @@ atom-text-editor.editor .is-focused .cursors .cursor {
 // Font Operator Mono + Theme Ocean Next theme
 // atom-workspace,
 atom-text-editor {
-    font-family: "Operator Mono";
-    font-size: 15px;
-    font-weight: normal;
-    line-height: 1.7;
+  text-rendering: optimizeLegibility;
+  font-family: "Operator Mono";
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.7;
 }
 
 atom-text-editor.editor {
-    .syntax--entity.syntax--other.syntax--attribute-name {
-        font-style: italic;
-    }
-    .comment {
-      font-style: italic;
-    }
+  .syntax--comment, .syntax--keyword,
+  .syntax--entity.syntax--other.syntax--attribute-name {
+    font-style: italic;
+  }
 }
 
 // atom-panel.tool-panel {
 //     font-size: 0.88em;
 // }
+
+// Ligature w/ Fire Code font
+atom-text-editor.editor {
+  .syntax--storage.syntax--type.syntax--function.syntax--arrow,
+  .syntax--keyword.syntax--operator:not(.accessor),
+  .syntax--punctuation.syntax--definition {
+    font-family: "Fira Code";
+  }
+
+  .syntax--string.syntax--quoted,
+  .syntax--string.syntax--regexp {
+    -webkit-font-feature-settings: "liga" off, "calt" off;
+  }
+}
+
