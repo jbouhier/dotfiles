@@ -1,0 +1,25 @@
+// Place your settings in this file to overwrite the default settings
+{
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": true,
+    "explorer.openEditors.visible": 0,
+    "editor.renderWhitespace": "none",
+    "editor.matchBrackets": false,
+    "editor.trimAutoWhitespace": true,
+    "editor.renderIndentGuides": false,
+    "editor.cursorBlinking": "solid",
+    "terminal.external.osxExec": "iTerm.app",
+    "terminal.integrated.shell.osx": "/usr/local/bin/zsh",
+    "editor.fontFamily": "'Fira Code', Hasklig, 'Operator Mono'",
+    "editor.fontSize": 15,
+    "editor.lineHeight": 22,
+    "editor.fontLigatures": true,
+    "window.zoomLevel": 0,
+    "workbench.sideBar.location": "left",
+    "editor.wordWrap": "off",
+    "workbench.iconTheme": "material-icon-theme",
+    "editor.renderLineHighlight": "none",
+    "python.linting.pylintEnabled": false,
+    "workbench.colorTheme": "Material Theme"
+}
