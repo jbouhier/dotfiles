@@ -1,6 +1,6 @@
 // Place your key bindings in this file to overwrite the defaults
 [
-    // Toggle between terminal and editor focus
+    // Toggle focus editor <-> terminal
     {
         "key": "cmd+escape",
         "command": "workbench.action.focusActiveEditorGroup",
@@ -10,5 +10,10 @@
         "key": "cmd+escape",
         "command": "workbench.action.terminal.focus",
         "when": "!terminalFocus"
+    },
+    // Cycle split window panes
+    {
+        "key": "alt+tab",
+        "command": "workbench.action.navigateEditorGroups"
     }
 ]
