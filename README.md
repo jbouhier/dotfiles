@@ -1,7 +1,10 @@
-# Conf
+# Linux configuration
 
-Here are my Linux configurations files. Feel free to try them out.  
+Here are my Linux config files for the terminal and text editors.  
+Feel free to try them out.  
 
-## Files
-	.zshrc
-	.vimrc 
+## Content
+- atom
+- vscode
+- .zshrc
+- .vimrc
