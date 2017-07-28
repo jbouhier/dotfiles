@@ -1,0 +1,42 @@
+/*
+	Instructions for Mac users:
+
+	- Install the fonts 'Operator Mono' & 'Fira Code' on your system (feel free to use others)
+
+	- Add the following config to your VS Code settings.json:
+	{
+		"editor.fontFamily": "Operator Mono",
+  		"editor.fontSize": 15,
+  		"editor.lineHeight": 25,
+  		"editor.fontLigatures": true
+	}
+
+	- In VS Code, install the plugin 'Custom CSS and JS Loader'
+	- Put this CSS file where you want (i.e: /Users/username/.vscode/style.css)
+	- Open VS Code settings and add: "vscode_custom_css.imports": ["file:///Users/username/.vscode/style.css"]
+	- Make sure the path is referencing the same place where you put this CSS file
+	- Check that you can open the file in your settings with 'CMD + click' or 'CTRL + click'. It should be underlined.
+	- Hit 'CMD + shift + P' and type 'Enable Custom CSS and JS'
+	- Close and repoen VS Code, check that everything works.
+
+
+	Note: This config was done on VS Code 1.14 on Mac + Material Theme
+
+	P.S: 
+		If it doesn't work. Disable the plugin, restart VS Code then enable it back.
+		If it still doesn't work, click Help > Toggle Developer Tools and check the
+		css classes in your editor. It might be diffrent according to your theme of version.
+		Finally, update the classes in this file with what you got.
+*/
+
+/* Ligatures */
+.mtk13 {
+  font-family: 'Fira Code'
+}
+
+/* Keywords, decorators, comments */
+.mtk5, .mtk8, .mtki {
+  font-family: 'Operator Mono';
+  font-style: italic;
+  font-size: 1.0em;
+}
