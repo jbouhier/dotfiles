@@ -1,10 +1,14 @@
 # Linux configuration
 
-Here are my Linux config files for the terminal and text editors.  
+Here are my Linux config files.  
 Feel free to try them out.  
+
+\- [JB](https://github.com/jbouhier)
+
 
 ## Content
 - atom
 - vscode
-- .zshrc
+- .gitconfig
 - .vimrc
+- .zshrc
