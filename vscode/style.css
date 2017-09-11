@@ -17,7 +17,7 @@
 	- Make sure the path is referencing the same place where you put this CSS file
 	- Check that you can open the file in your settings with 'CMD + click' or 'CTRL + click'. It should be underlined.
 	- Hit 'CMD + shift + P' and type 'Enable Custom CSS and JS'
-	- Close and repoen VS Code, check that everything works.
+	- Close and reopen VS Code, check that everything works.
 
 
 	Note: This config was done on VS Code 1.14 on Mac + Material Theme
