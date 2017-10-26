@@ -53,15 +53,16 @@ plugins=(git svn colored-man colorize github vagrant virutalenv pip python brew 
 
 # User configuration
 
-export PATH="$PATH:/usr/local/opt/php56/bin:/Users/synxs/.rvm/gems/ruby-2.2-head/bin:/Users/synxs/.rvm/gems/ruby-2.2-head@global/bin:/Users/synxs/.rvm/rubies/ruby-2.2-head/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin:/Users/synxs/.rvm/bin=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/usr/local/Cellar/vim/:/usr/local/bin:/Users/synxs/.node/lib/node_modules/bower/bin:/Users/synxs/.node/bin"
-# export MANPATH="/usr/local/man:$MANPATH"
+export PATH="/usr/local/opt/php56/bin:/usr/local/bin:/usr/local/opt/sqlite/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin:/usr/local/Cellar/vim/:$HOME/.cargo/bin:$HOME/.npm-packages/bin:$PATH"
+
+export PATH="$(brew --prefix homebrew/php/php72)/bin:$PATH"
 
 # Android SDK
 export ANDROID_HOME="$HOME/Development/android-sdk-macosx"
 export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 
 # Rust
-export PATH="$HOME/.cargo/bin:$PATH"
+# export PATH="~.cargo/bin"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -102,6 +103,7 @@ alias e='emacs -nw'
 alias ej='rm -f *~'
 
 alias gc='gcc-7'
+alias g+='g++-7'
 alias svni='svn log --verbose -r'
 alias spot='vi Library/Application\ Support/Spotify/prefs'
 alias npmc='npm config edit --global'
@@ -119,6 +121,7 @@ alias bu='brew upgrade'
 alias ng2='cd ~/projects/1-languages/js/ng2-first'
 alias p='python'
 alias p3='python3'
+alias code='code-insiders'
 
 export LANGUAGE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
@@ -131,4 +134,4 @@ alias bower='noglob bower'
 #alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Homebrew
-export HOMEBREW_GITHUB_API_TOKEN=a3d39371749858651af469cd9ac0083d752d752f
+export HOMEBREW_GITHUB_API_TOKEN=NeverGonnaGiveYouUpNeverGonnaLetYouDown
