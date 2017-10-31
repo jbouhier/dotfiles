@@ -11,6 +11,7 @@
 	pu = push -u
 	p = push
 	unstage = reset HEAD --
+	clean = rm -r --cached
 	last = log -1 HEAD
 	fix = reset --soft HEAD~1
 	undo-commit = reset --soft HEAD^
