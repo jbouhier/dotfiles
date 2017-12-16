@@ -6,9 +6,15 @@ export ZSH=/Users/synxs/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+ZSH_THEME="powerlevel9k/powerlevel9k"
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status dir vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(root_indicator)
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
+POWERLEVEL9K_STATUS_CROSS=true
+POWERLEVEL9K_STATUS_OK=false
+POWERLEVEL9K_TIME_FORMAT="%D{%H:%M}"
+# ZSH_THEME="robbyrussell"
 # ZSH_THEME="agnoster"
-# ZSH_THEME="powerlevel9k/powerlevel9k"
 # ZSH_THEME="random"
 
 # Uncomment the following line to use case-sensitive completion.
@@ -61,6 +67,9 @@ export PATH="$(brew --prefix homebrew/php/php72)/bin:$PATH"
 export ANDROID_HOME="$HOME/Development/android-sdk-macosx"
 export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 
+# Java Glassfish
+export GLASSFISH_HOME=/usr/local/opt/glassfish/libexec
+
 # Rust
 # export PATH="~.cargo/bin"
 
@@ -86,11 +95,31 @@ source $ZSH/oh-my-zsh.sh
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
-# Example aliases
-alias zshconfig="mate ~/.zshrc"
-alias vi="vim"
 
+
+# Config
+alias zshc="vim ~/.zshrc"
+alias ohmyzshc="vim ~/.oh-my-zsh"
+alias vimc="vim ~/.vimrc"
+alias npmc='npm config edit --global'
+alias gitc='git config --global --edit'
+alias tmuxc="vim ~/.tumx.conf"
+alias sourcezsh="source ~/.zshrc"
+alias sourcetumx="tmux source ~/.tmux.conf"
+
+# Terminal
+alias vi="vim"
+alias e='emacs -nw'
+alias ej='rm -f *~'
+alias code='code-insiders'
+alias t="tmux"
+alias tkill="tmux kill-session -t"
+export LANGUAGE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LC_TYPE=en_US.UTF-8
+
+# Aliases
 alias c='cd ..'
 alias l='ls -l'
 alias ll='ls -lh'
@@ -99,39 +128,41 @@ alias rf='rm -rf'
 alias bd='cd /usr/local/Cellar/'
 alias d='du -sh'
 
-alias e='emacs -nw'
-alias ej='rm -f *~'
-
+# Dev
 alias gc='gcc-7'
 alias g+='g++-7'
 alias svni='svn log --verbose -r'
 alias spot='vi Library/Application\ Support/Spotify/prefs'
-alias npmc='npm config edit --global'
-alias gitc='git config --global --edit'
 alias ge='git config --edit'
 alias ld='adb devices'
 alias api='cd /Users/synxs/etna/gpe/project/boxeapp-api'
 alias app='cd /Users/synxs/etna/gpe/project/master-mobileApp'
-alias site='cd ~/etna/gpe/project/site_boxeapp'
 alias and='cd ~/AndroidStudioProjects/Drawy'
+alias bower='noglob bower'
 alias nc='npm-check -gu'
 alias bc='brew update'
 alias bcc='brew cleanup'
 alias bu='brew upgrade'
-alias ng2='cd ~/projects/1-languages/js/ng2-first'
 alias p='python'
 alias p3='python3'
-alias code='code-insiders'
 
-export LANGUAGE=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-export LC_TYPE=en_US.UTF-8
+# Git
+alias master="git checkout master"
+alias ga="git add"
+alias gc="git commit -m"
+alias gca="git commit -am"
+alias gs="git status"
+alias gsh="git stash"
+alias gsp="git stash pop"
+alias gpull="git pull"
+alias gco="git checkout"
+alias grecent="git for-each-ref --count=10 --sort=-committerdate refs/heads/ --format='%(refname:short)'"
+
+# Golang
 export GOPATH=/Users/synxs/gopath
 
-alias bower='noglob bower'
-
-#alias ohmyzsh="mate ~/.oh-my-zsh"
+# NodeJS
+# export NODE_PATH=$HOME/.npm-packages
 
 # Homebrew
-export HOMEBREW_GITHUB_API_TOKEN=NeverGonnaGiveYouUpNeverGonnaLetYouDown
+export HOMEBREW_GITHUB_API_TOKEN=n3vE4goNaGivEy0uUpN3v4rGunn4letY0uDown
