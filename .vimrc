@@ -8,14 +8,15 @@ call vundle#begin()
 Plugin'VundleVim/Vundle.vim'
 
 "PLugins
-Plugin'scrooloose/nerdtree'
-Plugin'scrooloose/syntastic'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
 "Plugin 'Valloric/YouCompleteMe'
-Plugin'Xuyuanp/nerdtree-git-plugin'
-Plugin'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
-Plugin'tpope/vim-fugitive'
-Plugin'ctrlpvim/ctrlp.vim'
-Plugin'jdkanani/vim-material-theme'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'tpope/vim-fugitive'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'jdkanani/vim-material-theme'
+Plugin 'arcticicestudio/nord-vim'
 "Plugin 'Shougo/unite.vim'
 
 call vundle#end()            " required
@@ -49,6 +50,7 @@ set encoding=utf-8
 set t_Co=256
 set fillchars+=stl:\ ,stlnc:\
 set term=xterm-256color
+"set termguicolor
 set termencoding=utf-8
 
 "MacVim Powerline
@@ -67,6 +69,7 @@ set laststatus=2
 syntax enable
 "set background=dark
 "colorscheme material-theme
+colorscheme nord
 set nu
 set ruler
 "set hlsearch
