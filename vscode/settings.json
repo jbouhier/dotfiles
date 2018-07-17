@@ -1,26 +1,66 @@
 // Place your settings in this file to overwrite the default settings
 {
     "editor.tabSize": 4,
-    "editor.insertSpaces": true,
+    "editor.insertSpaces": false,
     "editor.detectIndentation": true,
     "explorer.openEditors.visible": 0,
     "editor.renderWhitespace": "none",
-    "editor.matchBrackets": false,
+    "editor.matchBrackets": true,
     "editor.trimAutoWhitespace": true,
     "editor.renderIndentGuides": false,
     "editor.cursorBlinking": "solid",
     "terminal.external.osxExec": "iTerm.app",
     "terminal.integrated.shell.osx": "/usr/local/bin/zsh",
-    "editor.fontFamily": "'Operator Mono', 'Fira Code', Hasklig",
+    "terminal.integrated.fontSize": 15,
+    "editor.fontFamily": "'Operator Mono Lig', 'Fira Code', Hasklig",
     "editor.fontSize": 15,
     "editor.lineHeight": 25,
     "editor.fontLigatures": true,
     "window.zoomLevel": 0,
     "workbench.sideBar.location": "left",
     "editor.wordWrap": "off",
-    "workbench.iconTheme": "material-icon-theme",
+    "workbench.iconTheme": "eq-material-theme-icons-palenight",
     "editor.renderLineHighlight": "none",
     "python.linting.pylintEnabled": false,
-    "workbench.colorTheme": "Material Theme",
-    "vscode_custom_css.imports": ["file:///Users/synxs/.vscode/style.css"]
-}
+    "workbench.colorTheme": "Material Theme Palenight",
+    "C_Cpp.intelliSenseEngine": "Default",
+    "telemetry.enableTelemetry": false,
+    "telemetry.enableCrashReporter": false,
+    "workbench.colorCustomizations": {
+        "activityBarBadge.background": "#80CBC4",
+        "list.activeSelectionForeground": "#80CBC4",
+        "list.inactiveSelectionForeground": "#80CBC4",
+        "list.highlightForeground": "#80CBC4",
+        "scrollbarSlider.activeBackground": "#80CBC450",
+        "editorSuggestWidget.highlightForeground": "#80CBC4",
+        "textLink.foreground": "#80CBC4",
+        "progressBar.background": "#80CBC4",
+        "pickerGroup.foreground": "#80CBC4",
+        "tab.activeBorder": "#80CBC4",
+        "notificationLink.foreground": "#80CBC4"
+    },
+    "materialTheme.cache.workbench.settings": {
+        "accentPrevious": "Bright Teal",
+        "themeColours": "Default",
+        "accent": "Teal"
+    },
+    "files.associations": {
+        "*.vue": "html"
+    },
+    "editor.formatOnPaste": false,
+    "editor.formatOnSave": false,
+    "editor.formatOnType": false,
+    "python.pythonPath": "/usr/local/bin/python3",
+    "materialTheme.fixIconsRunning": false,
+    "emojisense.languages": {
+        "markdown": true,
+        "html": true,
+        "vue": true,
+        "plaintext": {
+          "markupCompletionsEnabled": false,
+          "emojiDecoratorsEnabled": false
+        },
+        "git-commit": true
+      },
+      "editor.colorDecorators": false,
+      "colorize.files_extensions": [".vue"]
