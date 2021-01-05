@@ -1,5 +1,5 @@
 [user]
-	name = Jean-Baptiste Bouhier
+	name = JB Bouhier
 	email = jb.bouhier@gmail.com
 [credential]
 	helper = osxkeychain
@@ -34,3 +34,5 @@
 	default = simple
 [url "https://"]
 	insteadOf = git://
+[includeIf "gitdir:~/Projects/"]
+	path = .gitconfig-work
