@@ -1,13 +1,9 @@
 # Linux configuration
 
 Here are my Linux config files.  
-Feel free to try them out.  
-
-\- [JB](https://github.com/jbouhier)
-
+Feel free to try them out!
 
 ## Content
-- atom
 - vscode
 - .gitconfig
 - .vimrc
