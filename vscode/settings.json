@@ -5,16 +5,18 @@
     "editor.detectIndentation": true,
     "explorer.openEditors.visible": 0,
     "editor.renderWhitespace": "none",
-    "editor.matchBrackets": true,
+    "editor.matchBrackets": "always",
     "editor.trimAutoWhitespace": true,
     "editor.renderIndentGuides": false,
     "editor.cursorBlinking": "solid",
     "terminal.external.osxExec": "iTerm.app",
     "terminal.integrated.shell.osx": "/usr/local/bin/zsh",
-    "terminal.integrated.fontSize": 15,
-    "editor.fontFamily": "'Operator Mono Lig', 'Fira Code', Hasklig",
-    "editor.fontSize": 15,
-    "editor.lineHeight": 25,
+    "terminal.integrated.fontSize": 18,
+    "editor.minimap.enabled": false,
+    "editor.fontFamily": "'Operator Mono Lig', 'Fira Code'",
+    "editor.fontSize": 18,
+    "editor.fontWeight": 800,
+    "editor.lineHeight": 30,
     "editor.fontLigatures": true,
     "window.zoomLevel": 0,
     "workbench.sideBar.location": "left",
@@ -39,19 +41,11 @@
         "tab.activeBorder": "#80CBC4",
         "notificationLink.foreground": "#80CBC4"
     },
-    "materialTheme.cache.workbench.settings": {
-        "accentPrevious": "Bright Teal",
-        "themeColours": "Default",
-        "accent": "Teal"
-    },
-    "files.associations": {
-        "*.vue": "html"
-    },
+    "editor.colorDecorators": false,
     "editor.formatOnPaste": false,
     "editor.formatOnSave": false,
     "editor.formatOnType": false,
     "python.pythonPath": "/usr/local/bin/python3",
-    "materialTheme.fixIconsRunning": false,
     "emojisense.languages": {
         "markdown": true,
         "html": true,
@@ -61,6 +55,5 @@
           "emojiDecoratorsEnabled": false
         },
         "git-commit": true
-      },
-      "editor.colorDecorators": false,
-      "colorize.files_extensions": [".vue"]
+      }
+}
