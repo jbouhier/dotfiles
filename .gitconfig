@@ -6,12 +6,6 @@
 [core]
 	editor = 'vim'
 [alias]
-	co = checkout
-	br = branch
-	ci = commit
-	st = status
-	pu = push -u
-	p = push
 	unstage = reset HEAD --
 	clean = rm -r --cached
 	last = log -1 HEAD
@@ -25,7 +19,6 @@
 	ls = ls-files
 	ru = remote update --prune origin
 	r = branch -r
-	# get remote br: checkout -b <branch> --track <remote>/<branch>
 	hdiff = diff origin/master..HEAD
 	cdiff = diff --cached
 # [http]
