@@ -167,6 +167,14 @@ alias gco="git checkout"
 alias gsi="git switch"
 alias grecent="git for-each-ref --count=10 --sort=-committerdate refs/heads/ --format='%(refname:short)'"
 
+# Make
+alias ma='gmake all'
+alias mi='gmake install'
+alias mu='gmake up'
+alias mm='gmake mock-events'
+alias mc='gmake clean'
+alias mr='gmake re'
+
 # Docker Compose
 alias dc='docker-compose'
 alias dcu='docker-compose up -d'
