@@ -16,12 +16,6 @@ export ZSH="/Users/jbouhier/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="powerlevel10k/powerlevel10k"
-POWERLEVEL10K_LEFT_PROMPT_ELEMENTS=(status dir vcs)
-POWERLEVEL10K_RIGHT_PROMPT_ELEMENTS=(root_indicator)
-POWERLEVEL10K_SHORTEN_DIR_LENGTH=1
-POWERLEVEL10K_STATUS_CROSS=true
-POWERLEVEL10K_STATUS_OK=false
-POWERLEVEL10K_TIME_FORMAT="%D{%H:%M}"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -85,6 +79,9 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -107,9 +104,6 @@ source $ZSH/oh-my-zsh.sh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Config
 alias zshc="vim ~/.zshrc"
@@ -143,8 +137,8 @@ alias bd='cd /usr/local/Cellar/'
 alias d='du -sh'
 
 # Dev
-alias gc='gcc-7'
-alias g+='g++-7'
+alias gc='gcc-10'
+alias g+='g++-10'
 alias spot='vi Library/Application\ Support/Spotify/prefs'
 alias ge='git config --edit'
 alias ld='adb devices'
@@ -153,16 +147,18 @@ alias bcc='brew cleanup'
 alias bu='brew upgrade'
 alias p='python'
 alias p3='python3'
+alias make='gmake'
 
 # Git
 alias master="git checkout master"
 alias ga="git add"
-alias gc="git commit -m"
+alias gc="git commit"
+alias gcm="git commit -m"
 alias gca="git commit -am"
 alias gs="git status"
 alias gsh="git stash"
 alias gsp="git stash pop"
-alias gpull="git pull"
+alias gpl="git pull"
 alias gco="git checkout"
 alias gsi="git switch"
 alias grecent="git for-each-ref --count=10 --sort=-committerdate refs/heads/ --format='%(refname:short)'"
@@ -189,5 +185,23 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+autoload -U add-zsh-hook
+load-nvmrc() {
+  local node_version="$(nvm version)"
+  local nvmrc_path="$(nvm_find_nvmrc)"
+
+  if [ -n "$nvmrc_path" ]; then
+    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+
+    if [ "$nvmrc_node_version" = "N/A" ]; then
+      nvm install
+    elif [ "$nvmrc_node_version" != "$node_version" ]; then
+      nvm use
+    fi
+  elif [ "$node_version" != "$(nvm version default)" ]; then
+    echo "Reverting to nvm default version"
+    nvm use default
+  fi
+}
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc
