@@ -3,6 +3,8 @@
 	email = jb.bouhier@gmail.com
 [credential]
 	helper = osxkeychain
+[core]
+	editor = 'vim'
 [alias]
 	co = checkout
 	br = branch

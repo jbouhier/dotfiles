@@ -84,7 +84,8 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-# export MANPATH="/usr/local/man:$MANPATH"
+export VISUAL=vim
+export EDITOR="$VISUAL"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -104,6 +105,9 @@ source $ZSH/oh-my-zsh.sh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Config
 alias zshc="vim ~/.zshrc"
