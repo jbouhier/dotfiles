@@ -169,6 +169,7 @@ alias gco="git checkout"
 alias gsi="git switch"
 alias gp="git push"
 alias gpu="git push -u origin"
+alias gcl="git clone"
 alias grecent="git for-each-ref --count=10 --sort=-committerdate refs/heads/ --format='%(refname:short)'"
 
 # Make
