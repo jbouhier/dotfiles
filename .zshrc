@@ -154,7 +154,7 @@ alias p3='python3'
 alias make='gmake'
 
 # Git
-alias master="git checkout master"
+alias gmas="git checkout master"
 alias ga="git add"
 alias gc="git commit"
 alias gcm="git commit -m"
