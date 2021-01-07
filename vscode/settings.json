@@ -14,14 +14,13 @@
     "terminal.integrated.fontSize": 18,
     "editor.minimap.enabled": false,
     "editor.fontFamily": "'Operator Mono Lig', 'Fira Code'",
-    "editor.fontSize": 18,
+    "editor.fontSize": 16,
     "editor.fontWeight": 800,
-    "editor.lineHeight": 30,
+    "editor.lineHeight": 25,
     "editor.fontLigatures": true,
-    "window.zoomLevel": 0,
+    "window.zoomLevel": 1,
     "workbench.sideBar.location": "left",
     "editor.wordWrap": "off",
-    "workbench.iconTheme": "eq-material-theme-icons-palenight",
     "editor.renderLineHighlight": "none",
     "python.linting.pylintEnabled": false,
     "workbench.colorTheme": "Material Theme Palenight",
@@ -55,5 +54,10 @@
           "emojiDecoratorsEnabled": false
         },
         "git-commit": true
-      }
+      },
+      "explorer.confirmDelete": false,
+      "explorer.autoReveal": false,
+      "workbench.iconTheme": "eq-material-theme-icons-palenight",
+      "material-icon-theme.folders.theme": "classic",
+      "material-icon-theme.activeIconPack": ""
 }
