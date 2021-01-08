@@ -59,5 +59,7 @@
       "explorer.autoReveal": false,
       "workbench.iconTheme": "eq-material-theme-icons-palenight",
       "material-icon-theme.folders.theme": "classic",
-      "material-icon-theme.activeIconPack": ""
+      "projectManager.git.baseFolders": [
+        "~/Projects"
+      ]
 }
