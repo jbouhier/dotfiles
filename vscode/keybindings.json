@@ -15,5 +15,10 @@
     {
         "key": "alt+tab",
         "command": "workbench.action.navigateEditorGroups"
+    },
+    // Toggle sidebar
+    {
+        "key": "cmd+e",
+        "command": "workbench.action.toggleSidebarVisibility"
     }
 ]
