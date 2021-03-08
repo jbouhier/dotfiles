@@ -19,6 +19,7 @@
 	ls = ls-files
 	ru = remote update --prune origin
 	r = branch -r
+	# get remote br: checkout -b <branch> --track <remote>/<branch>
 	hdiff = diff origin/master..HEAD
 	cdiff = diff --cached
 # [http]
@@ -27,6 +28,8 @@
 # 	proxy = http://172.16.35.1:8080
 [push]
 	default = simple
+[pull]
+	ff = only
 [url "https://"]
 	insteadOf = git://
 [includeIf "gitdir:~/Projects/"]
