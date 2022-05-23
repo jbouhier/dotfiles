@@ -8,6 +8,9 @@ fi
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+# Python 3.10
+export PATH="/usr/local/opt/python@3.10/bin:$PATH"
+
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/jbouhier/.oh-my-zsh"
 
@@ -16,6 +19,13 @@ export ZSH="/Users/jbouhier/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="powerlevel10k/powerlevel10k"
+
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status dir vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(root_indicator)
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
+POWERLEVEL9K_STATUS_CROSS=true
+POWERLEVEL9K_STATUS_OK=false
+POWERLEVEL9K_TIME_FORMAT="%D{%H:%M}"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -114,16 +124,17 @@ alias zshc="vim ~/.zshrc"
 alias ohmyzshc="vim ~/.oh-my-zsh"
 alias vimc="vim ~/.vimrc"
 alias npmc='npm config edit --global'
-alias gitc='git config --global --edit'
+alias vsc="cd ~/Library/Application\ Support/Code\ -\ Insiders/User/"
+alias gitc="git config --global --edit"
 alias tmuxc="vim ~/.tumx.conf"
-alias sourcezsh="source ~/.zshrc"
-alias sourcetumx="tmux source ~/.tmux.conf"
+alias szsh="source ~/.zshrc"
+alias stumx="tmux source ~/.tmux.conf"
 
 # Terminal
 alias vi="vim"
 alias e='emacs -nw'
 alias ej='rm -f *~'
-alias code='code-insiders'
+#alias code='code-insiders'
 alias t="tmux"
 alias tkill="tmux kill-session -t"
 export LANGUAGE=en_US.UTF-8
@@ -131,8 +142,10 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LC_TYPE=en_US.UTF-8
 
-# Aliases
+# Shell
 alias c='cd ..'
+alias cc='cd ../..'
+alias ccc='cd ../../..'
 alias l='ls -l'
 alias ll='ls -lh'
 alias la='ls -la'
@@ -141,9 +154,9 @@ alias bd='cd /usr/local/Cellar/'
 alias d='du -sh'
 
 # Dev
-alias gc='gcc-10'
-alias g+='g++-10'
-alias spot='vi Library/Application\ Support/Spotify/prefs'
+alias gcc='gcc-11'
+alias g++='g++-11'
+alias spot="vi Library/Application\ Support/Spotify/prefs"
 alias ge='git config --edit'
 alias ld='adb devices'
 alias bc='brew update'
@@ -151,10 +164,10 @@ alias bcc='brew cleanup'
 alias bu='brew upgrade'
 alias p='python'
 alias p3='python3'
-alias make='gmake'
 
 # Git
-alias gmas="git checkout master"
+alias mas="git checkout master"
+alias main="git checkout main"
 alias ga="git add"
 alias gc="git commit"
 alias gcm="git commit -m"
@@ -172,10 +185,31 @@ alias gp="git push"
 alias gpu="git push -u origin"
 alias gcl="git clone"
 alias grecent="git for-each-ref --count=10 --sort=-committerdate refs/heads/ --format='%(refname:short)'"
+alias gclean="git clean -fdn"
+alias grm="git rm"
+alias grmc="git rm --cached"
+alias glc="git diff-tree --no-commit-id --name-only -r"
+
+# Yarn
+alias y="yarn"
+alias ws="y workspace"
+alias s="y start"
+alias ss="y start:live"
+alias sl="y start:lite"
+alias st="y storybook"
+
+# Nvm
+alias n="nvm"
+alias ni="nvm install"
+alias nu="nvm uninstall"
+alias nl="nvm list"
 
 # Make
+alias m='gmake'
+alias make='gmake'
 alias ma='gmake all'
 alias mi='gmake install'
+alias ml='gmake lite'
 alias mu='gmake up'
 alias mm='gmake mock-events'
 alias mc='gmake clean'
@@ -183,20 +217,30 @@ alias mr='gmake re'
 
 # Docker Compose
 alias dc='docker-compose'
-alias dcu='docker-compose up -d'
-alias dcd='docker-compose down'
-alias dcl='docker-compose logs'
-alias dcp='docker-compose ps'
-alias dce='docker-compose exec'
-alias dcr='docker-compose run'
-alias dcb='docker-compose build'
-alias dcrm='docker-compose rm'
-alias dcr='docker-compose restart'
+alias dcu='dc up -d'
+alias dcd='dc down'
+alias dcl='dc logs'
+alias dcp='dc ps'
+alias dcpl='dc pull'
+alias dcpu='dc push'
+alias dce='dc exec'
+alias dcr='dc run'
+alias dcb='dc build'
+alias dcrm='dc rm'
+alias dcr='dc restart'
 
-# Work
-alias wok="cd ~/Projects/miwa"
-alias vid="cd ~/Projects/videocall"
-alias bak="cd ~/Projects/videocall-analytics-server"
+# jq
+alias sc='jq .scripts package.json'
+
+# Projects
+alias wok="cd ~/Projects/itp-miwa"
+alias serv="cd ~/Projects/videocall-analytics-server"
+alias desk="cd ~/Projects/electron"
+alias hp="cd ~/Projects/hospital-app"
+alias lite="ws miwa-lite"
+alias comp="ws miwa-ui-components"
+alias fix="y fix:codestyle"
+alias fip="lite fix:codestyle && miwa fix:codestyle"
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
@@ -223,3 +267,4 @@ load-nvmrc() {
 }
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
+
