@@ -8,11 +8,20 @@ fi
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# Python 3.10
-export PATH="/usr/local/opt/python@3.10/bin:$PATH"
-
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/jbouhier/.oh-my-zsh"
+
+# pnpm
+export PNPM_HOME="/Users/jbouhier/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+
+# Dotnet
+export DOTNET_ROOT="/usr/local/share/dotnet"
+export PATH="$PATH:/Users/jbouhier/.dotnet/tools"
+export PATH="/usr/local/share/dotnet:$PATH"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -120,14 +129,14 @@ export EDITOR="$VISUAL"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Config
-alias zshc="vim ~/.zshrc"
+alias conf="vim ~/.zshrc"
 alias ohmyzshc="vim ~/.oh-my-zsh"
 alias vimc="vim ~/.vimrc"
 alias npmc='npm config edit --global'
 alias vsc="cd ~/Library/Application\ Support/Code\ -\ Insiders/User/"
 alias gitc="git config --global --edit"
 alias tmuxc="vim ~/.tumx.conf"
-alias szsh="source ~/.zshrc"
+alias rel="source ~/.zshrc"
 alias stumx="tmux source ~/.tmux.conf"
 
 # Terminal
@@ -143,66 +152,68 @@ export LANG=en_US.UTF-8
 export LC_TYPE=en_US.UTF-8
 
 # Shell
-alias c='cd ..'
-alias cc='cd ../..'
-alias ccc='cd ../../..'
+alias ..='cd ..'
 alias l='ls -l'
 alias ll='ls -lh'
 alias la='ls -la'
 alias rf='rm -rf'
-alias bd='cd /usr/local/Cellar/'
-alias d='du -sh'
 
 # Dev
-alias gcc='gcc-11'
-alias g++='g++-11'
-alias spot="vi Library/Application\ Support/Spotify/prefs"
-alias ge='git config --edit'
+alias gcc='gcc-13'
+alias g++='g++-13'
+alias p='python3'
 alias ld='adb devices'
+alias spot="vi Library/Application\ Support/Spotify/prefs"
+
+# Homebrew
+alias b='brew'
 alias bc='brew update'
 alias bcc='brew cleanup'
 alias bu='brew upgrade'
-alias p='python'
-alias p3='python3'
+alias bi='brew info'
 
 # Git
-alias mas="git checkout master"
-alias main="git checkout main"
+alias gco="git checkout"
+alias gma="gco main &> /dev/null || gco master &> /dev/null"
+alias gre="gco Release/ITP-4.0 &> /dev/null"
 alias ga="git add"
+alias gaa="git add --all"
+alias ge='git config --edit'
 alias gc="git commit"
-alias gcm="git commit -m"
-alias gca="git commit --amend"
-alias gcam="git commit -am"
+alias gcm="gc -m"
+alias gca="gc --amend"
+alias gcam="gc -am"
 alias gs="git status"
-alias gsh="git stash"
+alias gsh="git stash -u"
+alias gsm="git stash -um"
 alias gsp="git stash pop"
 alias gsl="git stash list"
 alias gbl="git branch | cat"
 alias gpl="git pull"
-alias gco="git checkout"
 alias gsi="git switch"
 alias gp="git push"
-alias gpu="git push -u origin"
+alias gpu="gp -u origin"
 alias gcl="git clone"
 alias grecent="git for-each-ref --count=10 --sort=-committerdate refs/heads/ --format='%(refname:short)'"
 alias gclean="git clean -fdn"
 alias grm="git rm"
 alias grmc="git rm --cached"
+alias grn="grmc -r . && gaa ."
+alias gmv="git mv"
 alias glc="git diff-tree --no-commit-id --name-only -r"
 
-# Yarn
-alias y="yarn"
-alias ws="y workspace"
-alias s="y start"
-alias ss="y start:live"
-alias sl="y start:lite"
-alias st="y storybook"
+# pnpm
+alias pn='pnpm'
+alias pe='pn env use -g'
+alias pr='pn env remove -g'
+alias pl='pn env list'
+alias plr='pn env list --remote'
 
-# Nvm
-alias n="nvm"
-alias ni="nvm install"
-alias nu="nvm uninstall"
-alias nl="nvm list"
+# yarn
+alias y='yarn'
+alias ws='y workspace'
+alias s='y start'
+alias fix='y fix:codestyle'
 
 # Make
 alias m='gmake'
@@ -211,12 +222,13 @@ alias ma='gmake all'
 alias mi='gmake install'
 alias ml='gmake lite'
 alias mu='gmake up'
+alias mb='gmake build'
 alias mm='gmake mock-events'
 alias mc='gmake clean'
 alias mr='gmake re'
 
 # Docker Compose
-alias dc='docker-compose'
+alias dc='docker compose'
 alias dcu='dc up -d'
 alias dcd='dc down'
 alias dcl='dc logs'
@@ -225,46 +237,27 @@ alias dcpl='dc pull'
 alias dcpu='dc push'
 alias dce='dc exec'
 alias dcr='dc run'
+alias di='dcr -it esa-front /bin/sh'
 alias dcb='dc build'
 alias dcrm='dc rm'
-alias dcr='dc restart'
+alias dcre='dc restart'
+
+# Dotnet
+alias d='dotnet'
+alias dr='d run'
+alias dbb='d build'
+alias da='d add'
+alias drm='d remove'
+alias dfo='d format'
+alias dl='d list'
 
 # jq
 alias sc='jq .scripts package.json'
 
-# Projects
-alias wok="cd ~/Projects/itp-miwa"
-alias serv="cd ~/Projects/videocall-analytics-server"
-alias desk="cd ~/Projects/electron"
-alias hp="cd ~/Projects/hospital-app"
-alias lite="ws miwa-lite"
-alias comp="ws miwa-ui-components"
-alias fix="y fix:codestyle"
-alias fip="lite fix:codestyle && miwa fix:codestyle"
-
-# NVM
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-autoload -U add-zsh-hook
-load-nvmrc() {
-  local node_version="$(nvm version)"
-  local nvmrc_path="$(nvm_find_nvmrc)"
-
-  if [ -n "$nvmrc_path" ]; then
-    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
-
-    if [ "$nvmrc_node_version" = "N/A" ]; then
-      nvm install
-    elif [ "$nvmrc_node_version" != "$node_version" ]; then
-      nvm use
-    fi
-  elif [ "$node_version" != "$(nvm version default)" ]; then
-    echo "Reverting to nvm default version"
-    nvm use default
-  fi
-}
-add-zsh-hook chpwd load-nvmrc
-load-nvmrc
-
+# Work
+proj='cd ~/Projects'
+alias wok="$proj/itp-rta"
+alias ff="$proj/fleet-support-frontend"
+alias fb="$proj/fleet-support-backend"
+alias sf="$proj/micro-frontend-event-scheduler-app"
+alias sb="$proj/events-scheduler-api"
