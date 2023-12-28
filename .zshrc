@@ -140,10 +140,11 @@ alias rel="source ~/.zshrc"
 alias stumx="tmux source ~/.tmux.conf"
 
 # Terminal
-alias vi="vim"
+alias vi="nvim"
+alias vim="nvim"
 alias e='emacs -nw'
 alias ej='rm -f *~'
-#alias code='code-insiders'
+alias code='code-insiders'
 alias t="tmux"
 alias tkill="tmux kill-session -t"
 export LANGUAGE=en_US.UTF-8
@@ -152,25 +153,27 @@ export LANG=en_US.UTF-8
 export LC_TYPE=en_US.UTF-8
 
 # Shell
-alias ..='cd ..'
+alias c='cd ..'
 alias l='ls -l'
 alias ll='ls -lh'
 alias la='ls -la'
 alias rf='rm -rf'
 
 # Dev
-alias gcc='gcc-13'
-alias g++='g++-13'
-alias p='python3'
+alias p='python'
 alias ld='adb devices'
 alias spot="vi Library/Application\ Support/Spotify/prefs"
 
 # Homebrew
 alias b='brew'
+alias bs='brew search'
+alias bi='brew install'
+alias bb='brew info'
 alias bc='brew update'
-alias bcc='brew cleanup'
 alias bu='brew upgrade'
-alias bi='brew info'
+alias bl='brew list'
+alias br='brew remove'
+alias bcc='brew cleanup'
 
 # Git
 alias gco="git checkout"
@@ -213,8 +216,6 @@ alias plr='pn env list --remote'
 # yarn
 alias y='yarn'
 alias ws='y workspace'
-alias s='y start'
-alias fix='y fix:codestyle'
 
 # Make
 alias m='gmake'
@@ -256,9 +257,5 @@ alias dl='d list'
 alias sc='jq .scripts package.json'
 
 # Work
-proj='cd ~/Projects'
-alias wok="$proj/itp-rta"
-alias ff="$proj/fleet-support-frontend"
-alias fb="$proj/fleet-support-backend"
-alias sf="$proj/micro-frontend-event-scheduler-app"
-alias sb="$proj/events-scheduler-api"
+WORK='cd ~/work'
+alias wok="$WORK/awesome-project"

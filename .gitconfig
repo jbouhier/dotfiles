@@ -4,7 +4,7 @@
 [credential]
 	helper = osxkeychain
 [core]
-	editor = 'vim'
+	editor = 'nvim'
 [alias]
 	unstage = reset HEAD --
 	clean = rm -r --cached
@@ -32,5 +32,5 @@
 	ff = only
 [url "https://"]
 	insteadOf = git://
-[includeIf "gitdir:~/Projects/"]
+[includeIf "gitdir:~/Work/"]
 	path = .gitconfig-work
