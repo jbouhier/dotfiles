@@ -167,8 +167,8 @@ alias spot="vi Library/Application\ Support/Spotify/prefs"
 # Homebrew
 alias b='brew'
 alias bs='brew search'
-alias bi='brew install'
-alias bb='brew info'
+alias ba='brew install'
+alias bi='brew info'
 alias bc='brew update'
 alias bu='brew upgrade'
 alias bl='brew list'
