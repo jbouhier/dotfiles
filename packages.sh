@@ -8,6 +8,7 @@ iterm2 \
 obsidian 
 
 brew install \
+postgresql@15 \
 ag \
 asdf \
 bat \

@@ -6,22 +6,15 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:/opt/homebrew/opt:/opt/homebrew/bin:HOME/.pyenv/shims:$PATH
+
+# Pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/jbouhier/.oh-my-zsh"
-
-# pnpm
-export PNPM_HOME="/Users/jbouhier/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-
-# Dotnet
-export DOTNET_ROOT="/usr/local/share/dotnet"
-export PATH="$PATH:/Users/jbouhier/.dotnet/tools"
-export PATH="/usr/local/share/dotnet:$PATH"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -29,12 +22,12 @@ export PATH="/usr/local/share/dotnet:$PATH"
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(root_indicator)
-POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
-POWERLEVEL9K_STATUS_CROSS=true
-POWERLEVEL9K_STATUS_OK=false
-POWERLEVEL9K_TIME_FORMAT="%D{%H:%M}"
+POWERLEVEL10K_LEFT_PROMPT_ELEMENTS=(status dir vcs)
+POWERLEVEL10K_RIGHT_PROMPT_ELEMENTS=(root_indicator)
+POWERLEVEL10K_SHORTEN_DIR_LENGTH=1
+POWERLEVEL10K_STATUS_CROSS=true
+POWERLEVEL10K_STATUS_OK=false
+POWERLEVEL10K_TIME_FORMAT="%D{%H:M}"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -49,14 +42,13 @@ POWERLEVEL9K_TIME_FORMAT="%D{%H:%M}"
 # Case-sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
 
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to automatically update without prompting.
-# DISABLE_UPDATE_PROMPT="true"
+# Uncomment one of the following lines to change the auto-update behavior
+# zstyle ':omz:update' mode disabled  # disable automatic updates
+# zstyle ':omz:update' mode auto      # update automatically without asking
+# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
 # Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
+# zstyle ':omz:update' frequency 13
 
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS="true"
@@ -71,6 +63,9 @@ POWERLEVEL9K_TIME_FORMAT="%D{%H:%M}"
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
+# You can also set it to another string to have that shown instead of the default red dots.
+# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
+# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
 # COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
@@ -98,23 +93,19 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
 # User configuration
 
-export VISUAL=vim
-export EDITOR="$VISUAL"
+# export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='nvim'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -128,9 +119,11 @@ export EDITOR="$VISUAL"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+
 # Config
 alias conf="vim ~/.zshrc"
 alias ohmyzshc="vim ~/.oh-my-zsh"
+alias p10="vim ~/.p10k.zsh"
 alias vimc="vim ~/.vimrc"
 alias npmc='npm config edit --global'
 alias vsc="cd ~/Library/Application\ Support/Code\ -\ Insiders/User/"
@@ -160,19 +153,21 @@ alias la='ls -la'
 alias rf='rm -rf'
 
 # Dev
+alias gcc='gcc-13'
+alias g++='g++-13'
 alias p='python'
-alias ld='adb devices'
 alias spot="vi Library/Application\ Support/Spotify/prefs"
 
 # Homebrew
 alias b='brew'
 alias bs='brew search'
-alias ba='brew install'
 alias bi='brew info'
+alias ba='brew install'
 alias bc='brew update'
 alias bu='brew upgrade'
-alias bl='brew list'
+alias bup='bc && bu'
 alias br='brew remove'
+alias bl='brew list'
 alias bcc='brew cleanup'
 
 # Git
@@ -217,6 +212,14 @@ alias plr='pn env list --remote'
 alias y='yarn'
 alias ws='y workspace'
 
+# asdf
+alias a='asdf'
+alias al='asdf list'
+alias ai='asdf install'
+
+# PostgreSQL
+alias pg="psql --host=localhost --dbname=eai_dev --username=postgres"
+
 # Make
 alias m='gmake'
 alias make='gmake'
@@ -239,7 +242,7 @@ alias dcpl='dc pull'
 alias dcpu='dc push'
 alias dce='dc exec'
 alias dcr='dc run'
-alias di='dcr -it esa-front /bin/sh'
+alias di='dcr -it db /bin/sh'
 alias dcb='dc build'
 alias dcrm='dc rm'
 alias dcre='dc restart'
@@ -257,5 +260,22 @@ alias dl='d list'
 alias sc='jq .scripts package.json'
 
 # Work
-WORK='cd ~/work'
-alias wok="$WORK/awesome-project"
+DIR='cd ~/Work'
+alias wok="$DIR/eai"
+
+# pnpm
+export PNPM_HOME="/Users/jbouhier/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
+
+source /Users/jbouhier/.config/broot/launcher/bash/br
+export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
