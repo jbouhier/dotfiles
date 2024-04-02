@@ -20,5 +20,10 @@
     {
         "key": "cmd+e",
         "command": "workbench.action.toggleSidebarVisibility"
+    },
+    // Toggle activity bar (sidebar icons)
+    {
+        "key": "cmd+shift+e",
+        "command": "workbench.action.toggleActivityBarVisibility"
     }
 ]
