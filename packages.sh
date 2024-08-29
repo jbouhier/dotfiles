@@ -4,10 +4,18 @@ brew tap homebrew/cask-fonts
 
 brew install --cask \
 alacritty \
+font-3270-nerd-font \
+font-hack-nerd-font \
 iterm2 \
-obsidian 
+jan \
+obsidian \
+processspy \
+vlc \
+wezterm \
+zed
 
 brew install \
+asdf \
 postgresql@15 \
 ag \
 asdf \
@@ -18,6 +26,7 @@ ca-certificates \
 cheat \
 choose \
 cmake \
+curl \
 curlie \
 delta \
 dog \
@@ -28,13 +37,15 @@ fd \
 front-hack-nerd-front \
 fzf \
 gcc \
+gh \
 git \
+git-lfs \
 glances \
 go \
 gping \
 gtop \
-hyperfine \
 httpie \
+hyperfine \
 jq \
 lsd \
 make \
@@ -44,10 +55,14 @@ neovim \
 onefetch \
 procs \
 pyenv \
+python \
 ripgrep \
 rustup-init \
 sd \
 sqlite \
 tldr \
+vf \
+vfox \
+yt-dlp \
 xh \
 zoxide

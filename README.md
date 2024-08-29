@@ -5,8 +5,7 @@ Feel free to try them out!
 
 ## Content
 
-- vscode
-- .gitconfig
-- .vimrc
-- .zshrc
-- .p10k.zsh
+- VScode
+- Git
+- Neovim
+- ZSH

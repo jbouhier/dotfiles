@@ -87,17 +87,16 @@ autocmd BufWritePre * %s/\s\+$//e
 :command W w
 :command Q q
 
-"Tabindentation
-set smartindent
-set tabstop=4
+"Indentation default = 4 spaces
 set shiftwidth=4
+set tabstop=4
 
+" Autodetect indentation style for existing files
+autocmd BufReadPost * if !exists('g:indent_detected') | let g:indent_detected = 1 | endif
 
-"Spaceindentation
-"set smartindent
-"set tabstop=2
-"set shiftwidth=2
-"set expandtab
+" For JavaScript, TypeScript, YAML, TOML, indentation = 2 spaces
+autocmd BufReadPost *.js,*.ts,*.yaml,*.toml set shiftwidth=2
+autocmd BufReadPost *.js,*.ts,*.yaml,*.toml set tabstop=2
 
 "split panes
 nnoremap <C-J> <C-W><C-J>
