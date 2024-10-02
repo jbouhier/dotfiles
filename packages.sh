@@ -1,7 +1,5 @@
 # Replace "brew" with your package manager of choice
 
-brew tap homebrew/cask-fonts
-
 brew install --cask \
 alacritty \
 font-3270-nerd-font \
@@ -51,7 +49,7 @@ lsd \
 make \
 mcfly \
 neofetch \
-neovim \
+nvim \
 onefetch \
 procs \
 pyenv \
