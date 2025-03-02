@@ -1,0 +1,15 @@
+#browser .tab-position .tab.active {
+  background-color: #4B4C53 !important;
+}
+
+#browser .tab-position .tab:not(.active) {
+  background-color: #1F262A !important;
+}
+
+#browser .tab-strip .tab:not(.pinned) {
+  width: 600px !important;
+}
+
+#browser .tab-position .tab.active .tab-header .favicon {
+  filter: none !important;
+}
