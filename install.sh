@@ -1,25 +1,9 @@
-# Replace "brew" with your package manager of choice
-
-brew install --cask \
-alacritty \
-font-3270-nerd-font \
-font-hack-nerd-font \
-iterm2 \
-jan \
-obsidian \
-processspy \
-vlc \
-wezterm \
-zed
-
 brew install \
-asdf \
-postgresql@15 \
 ag \
 asdf \
 bat \
-broot \
 bottom \
+broot \
 ca-certificates \
 cheat \
 choose \
@@ -32,7 +16,8 @@ duf \
 dust \
 exa \
 fd \
-front-hack-nerd-front \
+font-3270-nerd-font \
+font-hack-nerd-font \
 fzf \
 gcc \
 gh \
@@ -44,14 +29,19 @@ gping \
 gtop \
 httpie \
 hyperfine \
+iterm2 \
 jq \
+lm-studio \
 lsd \
 make \
 mcfly \
 neofetch \
 nvim \
+obsidian \
 onefetch \
+postgresql@17 \
 procs \
+processspy \
 pyenv \
 python \
 ripgrep \
@@ -59,8 +49,10 @@ rustup-init \
 sd \
 sqlite \
 tldr \
+vivaldi \
 vf \
-vfox \
-yt-dlp \
+vlc \
 xh \
+yt-dlp \
+zed \
 zoxide
