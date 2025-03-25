@@ -150,6 +150,7 @@ alias c='cd ..'
 alias l='ls -l'
 alias ll='ls -lh'
 alias la='ls -la'
+alias laa='ls -a | grep "^\."'
 alias rf='rm -rf'
 
 # Dev
