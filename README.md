@@ -9,4 +9,5 @@ Feel free to try them out!
 - [Git](https://git-scm.com)
 - [Neovim](https://neovim.io)
 - [Oh My Zsh](https://ohmyz.sh)
-- [Vivaldi](https://vivaldi.com)
+- [Vivaldi](https://vivaldi.com) browser
+- scripts
