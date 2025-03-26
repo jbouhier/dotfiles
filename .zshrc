@@ -216,7 +216,11 @@ alias ws='y workspace'
 # asdf
 alias a='asdf'
 alias al='asdf list'
+alias ala='asdf latest --all'
 alias ai='asdf install'
+alias ar='asdf uninstall'
+alias asu='asdf set -u'
+alias aup='~/scripts/asdf_update_all.sh'
 
 # PostgreSQL
 alias pg="psql --host=localhost --dbname=eai_dev --username=postgres"
