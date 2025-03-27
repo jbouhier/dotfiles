@@ -1,10 +1,9 @@
 // Place your settings in this file to overwrite the default settings
 {
-  "window.zoomLevel": 2,
   "editor.fontSize": 14,
   "editor.lineHeight": 25,
+  "editor.fontFamily": "Fira Code",
   "terminal.integrated.fontSize": 14,
-  "editor.fontFamily": "'Fira Code'",
   "editor.tabSize": 2,
   "editor.insertSpaces": true,
   "editor.detectIndentation": true,
@@ -15,7 +14,9 @@
   "editor.cursorBlinking": "solid",
   "terminal.external.osxExec": "iTerm.app",
   "terminal.integrated.profiles.osx": {
-    "zsh": { "path": "/bin/zsh" }
+    "zsh": {
+      "path": "/bin/zsh"
+    }
   },
   "editor.minimap.enabled": false,
   "editor.fontLigatures": true,
@@ -89,7 +90,21 @@
   ],
   "vsicons.dontShowNewVersionMessage": true,
   "typescript.updateImportsOnFileMove.enabled": "always",
-  "workbench.iconTheme": "eq-material-theme-icons-palenight",
+  "workbench.iconTheme": "vscode-icons",
+  "editor.guides.indentation": false,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "supermaven.enable": {
+    "*": true
+  },
   "workbench.colorTheme": "Material Theme Palenight",
-  "editor.guides.indentation": false
+  "window.zoomLevel": 1.6,
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "workbench.editor.editorActionsLocation": "titleBar",
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "workbench.activityBar.location": "hidden",
+  "window.commandCenter": false
 }
