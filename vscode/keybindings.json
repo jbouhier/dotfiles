@@ -32,8 +32,19 @@
         "command": "toggle.window.commandCenter",
         "when": "!terminalFocus"
     },
+    // Toogle minimalist mode
+    {
+        "key": "cmd+shift+h",
+        "command": "runCommands",
+        "args": {
+            "commands": [
+                "toggle.window.commandCenter",
+                "breadcrumbs.toggle",
+                "editor.action.toggleStickyScroll"
+            ]
+        }
+    }
     // TODO: 
     // - Toggle breadcrumbs
     // - Toggle editor sticky scroll
-
 ]
