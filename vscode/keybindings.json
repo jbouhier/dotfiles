@@ -31,5 +31,9 @@
         "key": "cmd+b",
         "command": "toggle.window.commandCenter",
         "when": "!terminalFocus"
-    }
+    },
+    // TODO: 
+    // - Toggle breadcrumbs
+    // - Toggle editor sticky scroll
+
 ]
