@@ -25,5 +25,11 @@
     {
         "key": "cmd+shift+a",
         "command": "workbench.action.toggleActivityBarVisibility"
+    },
+    // Toggle command center (top bar with search field)
+    {
+        "key": "cmd+b",
+        "command": "toggle.window.commandCenter",
+        "when": "!terminalFocus"
     }
 ]
