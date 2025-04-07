@@ -32,6 +32,11 @@
         "command": "toggle.window.commandCenter",
         "when": "!terminalFocus"
     },
+    // Toogle breadcrums
+    {
+        "key": "cmd+h",
+        "command": "breadcrumbs.toggle"
+    },
     // Toogle minimalist mode
     {
         "key": "cmd+shift+h",
