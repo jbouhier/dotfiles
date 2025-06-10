@@ -6,7 +6,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:/opt/homebrew/opt:/opt/homebrew/bin:HOME/.pyenv/shims:$PATH
+export PATH=$HOME/bin:/usr/local/bin:/opt/homebrew/opt:/opt/homebrew/bin:$HOME/.cargo/bin:$HOME/.pyenv/shims:$PATH
 
 # Pyenv
 export PYENV_ROOT="$HOME/.pyenv"
@@ -131,33 +131,40 @@ alias gitc="git config --global --edit"
 alias tmuxc="vim ~/.tumx.conf"
 alias rel="source ~/.zshrc"
 alias stumx="tmux source ~/.tmux.conf"
-
-# Terminal
-alias vi="nvim"
-alias vim="nvim"
-alias e='emacs -nw'
-alias ej='rm -f *~'
-alias code='code-insiders'
-alias t="tmux"
-alias tkill="tmux kill-session -t"
-export LANGUAGE=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-export LC_TYPE=en_US.UTF-8
+alias wok="cd ~/Projects/stripe-boost/"
+alias ws="windsurf"
+alias sc="jq .scripts package.json"
+alias pg="psql --host=localhost --dbname=eai_dev --username=postgres"
 
 # Shell
 alias c='cd ..'
 alias l='ls -l'
 alias ll='ls -lh'
 alias la='ls -la'
-alias laa='ls -a | grep "^\."'
 alias rf='rm -rf'
+alias vi="nvim"
+export LANGUAGE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LC_TYPE=en_US.UTF-8
 
 # Dev
-alias gcc='gcc-13'
-alias g++='g++-13'
+alias vim="nvim"
+alias e='emacs -nw'
+alias ej='rm -f *~'
+alias code='code-insiders'
+alias t="tmux"
+alias tkill="tmux kill-session -t"
+alias gcc='gcc-15'
+alias g++='g++-15'
 alias p='python'
 alias spot="vi Library/Application\ Support/Spotify/prefs"
+
+# ASDF - Version Manager
+alias a='asdf'
+alias al='asdf list'
+alias au='asdf use'
+alias as='asdf set -u'
 
 # Homebrew
 alias b='brew'
@@ -173,6 +180,8 @@ alias bcc='brew cleanup'
 
 # Git
 alias gco="git checkout"
+alias gsc="git smart-checkout"
+alias gg="git smart-checkout"
 alias gma="gco main &> /dev/null || gco master &> /dev/null"
 alias gre="gco Release/ITP-4.0 &> /dev/null"
 alias ga="git add"
@@ -181,6 +190,7 @@ alias ge='git config --edit'
 alias gc="git commit"
 alias gcm="gc -m"
 alias gca="gc --amend"
+alias gcr="gca --reset-author"
 alias gcam="gc -am"
 alias gs="git status"
 alias gsh="git stash -u"
@@ -192,7 +202,7 @@ alias gbl="git branch | cat"
 alias gpl="git pull"
 alias gsi="git switch"
 alias gp="git push"
-alias gpu="gp -u origin"
+alias gpo="gp -u origin"
 alias gcl="git clone"
 alias grecent="git for-each-ref --count=10 --sort=-committerdate refs/heads/ --format='%(refname:short)'"
 alias gclean="git clean -fdn"
@@ -202,85 +212,41 @@ alias grn="grmc -r . && gaa ."
 alias gmv="git mv"
 alias glc="git diff-tree --no-commit-id --name-only -r"
 
-# pnpm
-alias pn='pnpm'
-alias pe='pn env use -g'
-alias pr='pn env remove -g'
-alias pl='pn env list'
-alias plr='pn env list --remote'
+# Docker
+alias d="docker"
+alias db="docker build"
+alias dps="docker ps"
+alias dr="docker run"
+alias dc="docker compose"
+alias dcu="dc up"
+alias dcd="dc down"
+alias dcr="dc run"
+alias dcl="dc ls"
+alias dcc="dc config"
+alias dci="dc images"
+alias dck="dc kill"
 
-# yarn
-alias y='yarn'
-alias ws='y workspace'
+# Ollama
+alias ol="ollama"
 
-# asdf
-alias a='asdf'
-alias al='asdf list'
-alias ala='asdf latest --all'
-alias ai='asdf install'
-alias ar='asdf uninstall'
-alias asu='asdf set -u'
-alias aup='~/scripts/asdf_update_all.sh'
-
-# PostgreSQL
-alias pg="psql --host=localhost --dbname=eai_dev --username=postgres"
-
-# Make
-alias m='gmake'
-alias make='gmake'
-alias ma='gmake all'
-alias mi='gmake install'
-alias ml='gmake lite'
-alias mu='gmake up'
-alias mb='gmake build'
-alias mm='gmake mock-events'
-alias mc='gmake clean'
-alias mr='gmake re'
-
-# Docker Compose
-alias dc='docker compose'
-alias dcu='dc up -d'
-alias dcd='dc down'
-alias dcl='dc logs'
-alias dcp='dc ps'
-alias dcpl='dc pull'
-alias dcpu='dc push'
-alias dce='dc exec'
-alias dcr='dc run'
-alias di='dcr -it db /bin/sh'
-alias dcb='dc build'
-alias dcrm='dc rm'
-alias dcre='dc restart'
-
-# Dotnet
-alias d='dotnet'
-alias dr='d run'
-alias dbb='d build'
-alias da='d add'
-alias drm='d remove'
-alias dfo='d format'
-alias dl='d list'
-
-# jq
-alias sc='jq .scripts package.json'
-
-# Work
-DIR='cd ~/Work'
-alias wok="$DIR/eai"
-
-# pnpm
-export PNPM_HOME="/Users/jbouhier/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
+# Misc
+alias wh="wthrr bellevue -f d,w"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-source /Users/jbouhier/.config/broot/launcher/bash/br
+source ~/.config/broot/launcher/bash/br
 export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/jbouhier/.lmstudio/bin"
+
+# ASDF - Version Manager
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+# append completions to fpath
+fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
+# initialise completions with ZSH's compinit
+autoload -Uz compinit && compinit
+
+# Added by Windsurf
+export PATH="/Users/jbouhier/.codeium/windsurf/bin:$PATH"
