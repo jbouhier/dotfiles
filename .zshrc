@@ -157,6 +157,7 @@ alias t="tmux"
 alias tkill="tmux kill-session -t"
 alias gcc='gcc-15'
 alias g++='g++-15'
+alias make='gmake'
 alias p='python'
 alias spot="vi Library/Application\ Support/Spotify/prefs"
 
