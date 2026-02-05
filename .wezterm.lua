@@ -36,7 +36,13 @@ config.window_padding = {
 -- WINDOW BEHAVIOR
 -- ============================================================================
 
+wezterm.on('gui-startup', function(cmd)
+  local _, _, window = wezterm.mux.spawn_window(cmd or {})
+  window:gui_window():maximize()
+end)
+
 config.window_decorations = "RESIZE"
+config.window_close_confirmation = 'NeverPrompt'
 config.enable_tab_bar = false
 config.hide_tab_bar_if_only_one_tab = true
 config.audible_bell = "Disabled"
