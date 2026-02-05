@@ -37,6 +37,7 @@ config.window_padding = {
 -- ============================================================================
 
 config.window_decorations = "RESIZE"
+config.enable_tab_bar = false
 config.hide_tab_bar_if_only_one_tab = true
 config.audible_bell = "Disabled"
 config.scrollback_lines = 50000
@@ -59,9 +60,19 @@ config.keys = {
   -- │ TABS
   -- └──────────────────────────────────────────────────────────────────────────
   { key = 't',          mods = mod,             action = act.SpawnTab 'CurrentPaneDomain' },
+  -- Direct tab selection (mod + number)
   { key = '1',          mods = mod,             action = act.ActivateTab(0) },
   { key = '2',          mods = mod,             action = act.ActivateTab(1) },
   { key = '3',          mods = mod,             action = act.ActivateTab(2) },
+  { key = '4',          mods = mod,             action = act.ActivateTab(3) },
+  { key = '5',          mods = mod,             action = act.ActivateTab(4) },
+  { key = '6',          mods = mod,             action = act.ActivateTab(5) },
+  { key = '7',          mods = mod,             action = act.ActivateTab(6) },
+  { key = '8',          mods = mod,             action = act.ActivateTab(7) },
+  { key = '9',          mods = mod,             action = act.ActivateTab(8) },
+  -- Relative tab navigation (alt + bracket)
+  { key = '[',          mods = alt,             action = act.ActivateTabRelative(-1) },
+  { key = ']',          mods = alt,             action = act.ActivateTabRelative(1) },
 
   -- ┌──────────────────────────────────────────────────────────────────────────
   -- │ PANES: Split / Close / Zoom
