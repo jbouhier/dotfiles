@@ -1,0 +1,24 @@
+# Window
+window-height = 500
+window-width = 1000
+window-padding-x = 10
+window-padding-y = 10
+background-opacity = 0.9
+background-blur = 25
+window-theme = dark
+window-save-state = never
+window-decoration = false
+
+# Font
+font-family = "JetBrainsMono Nerd Font"
+# font-family = "MesloGS NF"
+font-style-bold = true
+font-size = 20
+
+# Shell 
+command = /opt/homebrew/bin/fish
+shell-integration = detect
+
+# Cursor
+cursor-style = block
+cursor-style-blink = false
