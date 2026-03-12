@@ -48,12 +48,14 @@ if status is-interactive
 	alias p='python'
 	alias spot="vi Library/Application\ Support/Spotify/prefs"
 
-	# Package Managers
-	alias a='asdf'
-	alias al='asdf list'
-	alias ai='asdf install'
-	alias ar='asdf uninstall'
-	alias as='asdf set -u'
+	# Mise - Runtime version manager
+	alias a='mise'
+	alias al='mise list'
+	alias ai='mise install'
+	alias ar='mise uninstall'
+	alias as='mise use -g'
+
+	# Homebrew
 	alias b='brew'
 	alias bs='brew search'
 	alias bi='brew info'

@@ -6,12 +6,18 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:/opt/homebrew/opt:/opt/homebrew/bin:$HOME/.cargo/bin:$HOME/.pyenv/shims:$PATH
-
-# Pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+# export PATH=$HOME/bin:/usr/local/bin:/opt/homebrew/opt:/opt/homebrew/bin:$HOME/.cargo/bin:$HOME/.pyenv/shims:$PATH
+typeset -U path
+path=(
+  "$HOME/bin"
+  "/usr/local/bin"
+  "/opt/homebrew/opt"
+  "/opt/homebrew/bin"
+  "$HOME/.cargo/env"
+  "$HOME/.pyenv/shims"
+  $path
+)
+export PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -128,10 +134,11 @@ alias vimc="vim ~/.vimrc"
 alias npmc='npm config edit --global'
 alias vsc="cd ~/Library/Application\ Support/Code\ -\ Insiders/User/"
 alias gitc="git config --global --edit"
+alias lg="lazygit"
 alias tmuxc="vim ~/.tumx.conf"
 alias rel="source ~/.zshrc"
 alias stumx="tmux source ~/.tmux.conf"
-alias wok="cd ~/Projects/stripe-boost/"
+alias wok="cd ~/Projects/sales-furnace/"
 alias ws="windsurf"
 alias sc="jq .scripts package.json"
 alias pg="psql --host=localhost --dbname=eai_dev --username=postgres"
@@ -155,17 +162,23 @@ alias ej='rm -f *~'
 alias code='code-insiders'
 alias t="tmux"
 alias tkill="tmux kill-session -t"
-alias gcc='gcc-15'
-alias g++='g++-15'
 alias make='gmake'
 alias p='python'
 alias spot="vi Library/Application\ Support/Spotify/prefs"
 
-# ASDF - Version Manager
-alias a='asdf'
-alias al='asdf list'
-alias au='asdf use'
-alias as='asdf set -u'
+# AI CLIs
+alias oc="opencode"
+alias cl="claude"
+alias gm="gemini"
+alias bb="blackbox"
+
+# Mise - Runtime version manager
+alias m='mise'
+alias ml='mise list'
+alias mi='mise install'
+alias mr='mise uninstall'
+alias ms='mise use'
+alias msg='mise use -g'
 
 # Homebrew
 alias b='brew'
@@ -212,6 +225,7 @@ alias grmc="git rm --cached"
 alias grn="grmc -r . && gaa ."
 alias gmv="git mv"
 alias glc="git diff-tree --no-commit-id --name-only -r"
+alias gl="git log --oneline --graph --decorate --all"
 
 # Docker
 alias d="docker"
@@ -231,7 +245,8 @@ alias dck="dc kill"
 alias ol="ollama"
 
 # Misc
-alias wh="wthrr bellevue -f d,w"
+alias wh="wthrr paris -f d,w"
+alias yt="yt-dlp --cookies-from-browser brave -f \"bv*[ext=mp4]+ba[ext=m4a]/b[ext=mp4] / bv*+ba/b\"" 
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -242,12 +257,19 @@ export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/Users/jbouhier/.lmstudio/bin"
 
-# ASDF - Version Manager
-export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
-# append completions to fpath
-fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
-# initialise completions with ZSH's compinit
+# zsh tab completion
 autoload -Uz compinit && compinit
+
+# Mise
+eval "$(mise activate zsh)"
 
 # Added by Windsurf
 export PATH="/Users/jbouhier/.codeium/windsurf/bin:$PATH"
+
+
+# Added by Antigravity
+export PATH="/Users/jbouhier/.antigravity/antigravity/bin:$PATH"
+
+# Added by Blackbox CLI v2 installer
+export PATH="/Users/jbouhier/.local/bin:$PATH"
+export BLACKBOX_INSTALL_DIR="/Users/jbouhier/.blackbox-cli-v2"
