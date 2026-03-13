@@ -133,10 +133,12 @@ alias dck = dc kill
 alias wh = wthrr paris -f d,w
 alias yt = yt-dlp --cookies-from-browser brave -f \bv*[ext=mp4]+ba[ext=m4a]/b[ext=mp4] / bv*+ba/b\
 
-# Prompt
-$env.PROMPT_COMMAND_RIGHT = { 
-    $"(date now | format date '%I:%M %p')"
+# Starship prompt
+if not ("~/.config/starship/init.nu" | path exists) {
+    mkdir ~/.config/starship
+    starship init nu | save "~/.config/starship/init.nu"
 }
+overlay use "~/.config/starship/init.nu"
 
 # Mise
 use ($nu.default-config-dir | path join mise.nu)

@@ -1,0 +1,30 @@
+format = "$directory$git_branch$character"
+add_newline = false
+
+[character]
+success_symbol = "❯"
+error_symbol = "❯"
+
+[git_branch]
+format = " on $symbol$branch "
+symbol = "‹ "
+
+[directory]
+style = "bold blue"
+truncation_length = 3
+truncate_to_repo = true
+
+[git_status]
+format = '($style $count )'
+style = "red"
+conflicted = "⚔ "
+deleted = "✘ "
+diverged = "⇕ "
+modified = "!"
+renamed = "» "
+staged = '+'
+stashed = "≡ "
+untracked = "… "
+
+[python]
+symbol = " "
