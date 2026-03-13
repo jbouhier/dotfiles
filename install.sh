@@ -64,6 +64,7 @@ cli=(
   sd
   sqlite
   sq
+  starship
   stripe
   tldr
   tmux
