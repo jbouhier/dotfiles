@@ -17,6 +17,13 @@
 # options using:
 #     config nu --doc | nu-highlight | less -R
 
+$env.PATH = ($env.PATH | prepend [
+    "/opt/homebrew/bin",
+    "/usr/local/bin",
+    $"($env.HOME)/bin",
+    $"($env.HOME)/.cargo/env",
+])
+
 $env.config.buffer_editor = 'nvim'
 $env.config.show_banner = false
 
@@ -41,7 +48,7 @@ alias rf = rm -rf
 alias vi = nvim
 alias tt = nvim ~/.config/ghostty/config
 alias conf = nvim ~/.config/nushell/config.nu
-def rel [] { exec nu }
+def rel [] { exec /opt/homebrew/bin/nu }
 
 # Dev
 alias vim = nvim
