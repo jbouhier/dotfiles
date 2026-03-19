@@ -1,0 +1,6 @@
+[tools]
+bun = "latest"
+deno = "latest"
+node = "24"
+python = "latest"
+rust = "stable"
