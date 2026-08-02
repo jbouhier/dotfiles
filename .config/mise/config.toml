@@ -1,6 +1,7 @@
 [tools]
 bun = "latest"
 deno = "latest"
-node = "24"
+go = "latest"
+node = "latest"
 python = "latest"
-rust = "stable"
+rust = "latest"

@@ -1,6 +1,7 @@
 local wezterm = require("wezterm")
 local act = wezterm.action
 local config = wezterm.config_builder()
+-- config.default_prog = { "/opt/homebrew/bin/fish" }
 
 -- ============================================================================
 -- CROSS-PLATFORM MODIFIERS
@@ -16,10 +17,9 @@ local alt = is_mac and "OPT" or "ALT"
 
 config.color_scheme = "Tokyo Night"
 
-config.font = wezterm.font({
-	family = "Fira Code",
-	weight = "Medium",
-	harfbuzz_features = { "calt=0", "clig=0", "liga=1" },
+config.font = wezterm.font_with_fallback({
+	{ family = "Fira Code", weight = "Medium", harfbuzz_features = { "calt=0", "clig=0", "liga=1" } },
+	{ family = "JetBrainsMono Nerd Font", weight = "Medium" },
 })
 
 config.font_size = 21
