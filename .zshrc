@@ -1,15 +1,19 @@
+# Added by ForgeCode installer
+export PATH="/Users/jbouhier/.local/bin:$PATH"
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
+#
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:/opt/homebrew/opt:/opt/homebrew/bin:$HOME/.cargo/bin:$HOME/.pyenv/shims:$PATH
 typeset -U path
+
 path=(
   "$HOME/bin"
+  "$HOME/.local/bin"
+  "$HOME/.bun/bin"
   "/usr/local/bin"
   "/opt/homebrew/opt"
   "/opt/homebrew/bin"
@@ -17,10 +21,13 @@ path=(
   "$HOME/.pyenv/shims"
   $path
 )
+
 export PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -138,16 +145,15 @@ alias lg="lazygit"
 alias tmuxc="vim ~/.tumx.conf"
 alias rel="source ~/.zshrc"
 alias stumx="tmux source ~/.tmux.conf"
-alias wok="cd ~/Projects/sales-furnace/"
+alias wok="cd ~/Projects/fremey/"
 alias ws="windsurf"
 alias sc="jq .scripts package.json"
 alias pg="psql --host=localhost --dbname=eai_dev --username=postgres"
 
 # Shell
 alias c='cd ..'
-alias l='ls -l'
-alias ll='ls -lh'
-alias la='ls -la'
+alias l='ls -lh'
+alias la='ls -lha'
 alias rf='rm -rf'
 alias vi="nvim"
 export LANGUAGE=en_US.UTF-8
@@ -162,23 +168,30 @@ alias ej='rm -f *~'
 alias code='code-insiders'
 alias t="tmux"
 alias tkill="tmux kill-session -t"
+alias gcc="gcc-16"
+alias g++="g++-16"
 alias make='gmake'
 alias p='python'
 alias spot="vi Library/Application\ Support/Spotify/prefs"
 
-# AI CLIs
+# ssh
+alias sd='cd ~/.ssh'
+alias scon='vi ~/.ssh/config'
+alias prod='ssh prod'
+alias rook='ssh rook'
+
+# AI
 alias oc="opencode"
 alias cl="claude"
-alias gm="gemini"
-alias bb="blackbox"
 
-# Mise - Runtime version manager
+# Mise - Tool version manager
 alias m='mise'
 alias ml='mise list'
 alias mi='mise install'
 alias mr='mise uninstall'
 alias ms='mise use'
 alias msg='mise use -g'
+alias mu='mise up --minimum-release-age 0s'
 
 # Homebrew
 alias b='brew'
@@ -187,7 +200,7 @@ alias bi='brew info'
 alias ba='brew install'
 alias bc='brew update'
 alias bu='brew upgrade'
-alias bup='bc && bu'
+alias bup='bc && bu -y'
 alias br='brew remove'
 alias bl='brew list'
 alias bcc='brew cleanup'
@@ -241,9 +254,6 @@ alias dcc="dc config"
 alias dci="dc images"
 alias dck="dc kill"
 
-# Ollama
-alias ol="ollama"
-
 # Misc
 alias wh="wthrr paris -f d,w"
 alias yt="yt-dlp --cookies-from-browser brave -f \"bv*[ext=mp4]+ba[ext=m4a]/b[ext=mp4] / bv*+ba/b\"" 
@@ -263,13 +273,12 @@ autoload -Uz compinit && compinit
 # Mise
 eval "$(mise activate zsh)"
 
-# Added by Windsurf
-export PATH="/Users/jbouhier/.codeium/windsurf/bin:$PATH"
+# bun completions
+[ -s "/Users/jbouhier/.bun/_bun" ] && source "/Users/jbouhier/.bun/_bun"
 
+# >>> open-knowledge cli >>>
+# ! Contents within this block are managed by OpenKnowledge. Do not edit.
+# ! Delete this whole block to opt out — OpenKnowledge will not re-add it.
+[ -f "$HOME/.ok/env.sh" ] && . "$HOME/.ok/env.sh"
+# <<< open-knowledge cli <<<
 
-# Added by Antigravity
-export PATH="/Users/jbouhier/.antigravity/antigravity/bin:$PATH"
-
-# Added by Blackbox CLI v2 installer
-export PATH="/Users/jbouhier/.local/bin:$PATH"
-export BLACKBOX_INSTALL_DIR="/Users/jbouhier/.blackbox-cli-v2"
