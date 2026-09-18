@@ -18,8 +18,8 @@ font-style = "Medium"
 font-size = 21
 
 # Shell 
-command = /opt/homebrew/bin/fish
-shell-integration = detect
+command = /opt/homebrew/bin/nu
+shell-integration = nushell
 scrollback-limit = 10000
 
 # Cursor

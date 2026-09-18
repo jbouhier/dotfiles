@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+# Managed by chezmoi. Do not edit the deployed copy in $HOME.
+#
+# chezmoi hashes this script's *rendered* contents. Because it embeds the
+# Brewfile via the include template function, the hash changes whenever the
+# package list changes -- so this runs on `chezmoi apply` only when packages
+# actually changed, never on every apply.
+#
+# Refresh the package list from the current machine:
+#     brew bundle dump --force --file="$HOME/.config/homebrew/Brewfile"
+# then commit the source file:
+#     chezmoi cd && git add dot_config/homebrew/Brewfile && git commit -m "chore(brew): refresh"
+
+set -euo pipefail
+
+# macOS only
+if [ "{{ .chezmoi.os }}" != "darwin" ]; then
+    exit 0
+fi
+
+if ! command -v brew >/dev/null 2>&1; then
+    echo "Homebrew not installed; skipping package installation." >&2
+    exit 0
+fi
+
+echo "→ Installing Homebrew packages from Brewfile..."
+brew bundle --file=/dev/stdin <<'BREWFILE'
+{{ include "dot_config/homebrew/Brewfile" }}
+BREWFILE
+echo "→ Homebrew packages up to date."

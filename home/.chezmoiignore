@@ -1,0 +1,29 @@
+# Machine-local state and secrets — never tracked.
+# Paths are relative to $HOME.
+
+# --- secrets / runtime credentials ---
+# .config/fish/conf.d/secrets.fish is now a template backed by Keychain (see dot_zshenv.tmpl).
+.config/opencode/service.json
+
+# --- app caches and volatile state ---
+.config/opencode/node_modules
+.config/fish/fish_variables
+.config/nushell/history.txt
+.config/zed/conversations
+.config/zed/embeddings
+.config/zed/prompts
+
+# --- VS Code Insiders: multi-GB caches, never track ---
+Library/Application Support/Code - Insiders/User/globalStorage
+Library/Application Support/Code - Insiders/User/History
+Library/Application Support/Code - Insiders/User/workspaceStorage
+Library/Application Support/Code - Insiders/User/profiles
+Library/Application Support/Code - Insiders/User/chatLanguageModels.json
+
+# --- Orca: Electron userData contains keys, cookies and a sqlite DB ---
+Library/Application Support/orca
+Library/Application Support/Orca
+
+# --- editor/agent session state that rewrites itself ---
+.codex
+.claude.json

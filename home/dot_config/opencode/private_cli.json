@@ -1,0 +1,21 @@
+{
+  "theme": {
+    "name": "tokyonight"
+  },
+  "diffs": {
+    "wrap": "word"
+  },
+  "session": {
+    "sidebar": "hide",
+    "scrollbar": false,
+    "thinking": "show",
+    "markdown": "rendered",
+    "grouping": "auto"
+  },
+  "animations": true,
+  "cursor": {
+    "style": "block",
+    "blinking": false
+  },
+  "plugins": ["./herdr-opencode"]
+}

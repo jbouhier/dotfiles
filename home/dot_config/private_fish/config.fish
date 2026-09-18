@@ -6,6 +6,9 @@ fish_add_path /opt/homebrew/bin
 fish_add_path $HOME/.cargo/bin
 fish_add_path $HOME/.pyenv/shims
 
+### Shell
+command /opt/homebrew/bin/nu
+
 ### Environment Variables
 set -gx LANGUAGE en_US.UTF-8
 set -gx LC_ALL en_US.UTF-8
@@ -48,14 +51,12 @@ if status is-interactive
 	alias p='python'
 	alias spot="vi Library/Application\ Support/Spotify/prefs"
 
-	# Mise - Runtime version manager
-	alias a='mise'
-	alias al='mise list'
-	alias ai='mise install'
-	alias ar='mise uninstall'
-	alias as='mise use -g'
-
-	# Homebrew
+	# Package Managers
+	alias a='asdf'
+	alias al='asdf list'
+	alias ai='asdf install'
+	alias ar='asdf uninstall'
+	alias as='asdf set -u'
 	alias b='brew'
 	alias bs='brew search'
 	alias bi='brew info'
@@ -126,4 +127,9 @@ if status is-interactive
 	    source ~/.config/broot/launcher/fish/br.fish
 	end
 end
+
+
+# Added by LM Studio CLI (lms)
+set -gx PATH $PATH /Users/jbouhier/.lmstudio/bin
+# End of LM Studio CLI section
 

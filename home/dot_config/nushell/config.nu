@@ -69,6 +69,7 @@ alias bb = blackbox
 
 # Mise - Runtime version manager
 alias m = mise
+alias mu = mise upgrade
 alias ml = mise list
 alias mi = mise install
 alias mr = mise uninstall
@@ -82,7 +83,7 @@ alias bi = brew info
 alias ba = brew install
 alias bc = brew update
 alias bu = brew upgrade
-alias bup = bc and bu
+alias bup = bc; bu -y
 alias br = brew remove
 alias bl = brew list
 alias bcc = brew cleanup

@@ -1,9 +1,10 @@
 // Place your settings in this file to overwrite the default settings
 {
+  "window.zoomLevel": 2,
   "editor.fontSize": 14,
   "editor.lineHeight": 25,
-  "editor.fontFamily": "Fira Code",
-  "terminal.integrated.fontSize": 14,
+  "terminal.integrated.fontSize": 13,
+  "editor.fontFamily": "'Fira Code'",
   "editor.tabSize": 2,
   "editor.insertSpaces": true,
   "editor.detectIndentation": true,
@@ -14,10 +15,9 @@
   "editor.cursorBlinking": "solid",
   "terminal.external.osxExec": "iTerm.app",
   "terminal.integrated.profiles.osx": {
-    "zsh": {
-      "path": "/bin/zsh"
-    }
+    "zsh": { "path": "/bin/zsh" }
   },
+  "terminal.integrated.copyOnSelection": true,
   "editor.minimap.enabled": false,
   "editor.fontLigatures": true,
   "workbench.editor.enablePreview": false,
@@ -25,7 +25,6 @@
   "workbench.list.openMode": "singleClick",
   "editor.wordWrap": "off",
   "editor.renderLineHighlight": "none",
-  "python.linting.pylintEnabled": false,
   "C_Cpp.intelliSenseEngine": "default",
   "telemetry.telemetryLevel": "off",
   "workbench.colorCustomizations": {
@@ -65,13 +64,21 @@
       "selection.background": "#2979FF40",
       "statusBarItem.remoteBackground": "#2979FF"
     },
-    "[Material Theme Palenight]": {}
+    "[Material Theme Palenight]": {},
+    "terminal.background": "#00000000"
   },
   "editor.colorDecorators": false,
   "editor.formatOnPaste": false,
   "editor.formatOnSave": true,
+  "eslint.enable": true,
+  "eslint.format.enable": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "always",
+    "source.fixAll.eslint": "explicit",
+    "source.fixAll.stylelint": "explicit"
+  },
   "editor.formatOnType": false,
-  "python.pythonPath": "~/.pyenv/shims/python",
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
   "emojisense.languages": {
     "markdown": true,
     "html": true,
@@ -85,26 +92,45 @@
   "explorer.confirmDelete": false,
   "explorer.autoReveal": false,
   "material-icon-theme.folders.theme": "classic",
-  "projectManager.git.baseFolders": [
-    "~/Work"
-  ],
   "vsicons.dontShowNewVersionMessage": true,
   "typescript.updateImportsOnFileMove.enabled": "always",
-  "workbench.iconTheme": "vscode-icons",
-  "editor.guides.indentation": false,
-  "javascript.updateImportsOnFileMove.enabled": "always",
-  "supermaven.enable": {
-    "*": true
-  },
+  "workbench.iconTheme": "material-icon-theme",
   "workbench.colorTheme": "Material Theme Palenight",
-  "window.zoomLevel": 1.6,
-  "[jsonc]": {
-    "editor.defaultFormatter": "vscode.json-language-features"
+  "editor.guides.indentation": false,
+  "editor.accessibilitySupport": "off",
+  "extensions.experimental.deferredStartupFinishedActivation": true,
+  "go.toolsManagement.autoUpdate": true,
+  "workbench.startupEditor": "none",
+  "geminicodeassist.project": "chrome-course-8zftk",
+  "diffEditor.codeLens": true,
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
   },
-  "workbench.editor.editorActionsLocation": "titleBar",
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "geminicodeassist.displayInlineContextHint": false,
+  "chat.viewSessions.orientation": "stacked",
+  "animations.Install-Method": "Apc Customize UI++",
+  "apc.imports": [
+    "file://${userHome}/.vscode-insiders/extensions/brandonkirbyson.vscode-animations-2.0.7/dist/updateHandler.js"
+  ],
+  "workbench.settings.applyToAllProfiles": [
+    "workbench.colorCustomizations",
+    "chat.disableAIFeatures"
+  ],
+  "chat.disableAIFeatures": true,
+  "json.schemaDownload.trustedDomains": {
+    "https://biomejs.dev": true,
+    "https://developer.microsoft.com/json-schemas/": true,
+    "https://json-schema.org/": true,
+    "https://json.schemastore.org/": true,
+    "https://openapi.vercel.sh/vercel.json": true,
+    "https://raw.githubusercontent.com/devcontainers/spec/": true,
+    "https://raw.githubusercontent.com/microsoft/vscode/": true,
+    "https://schemastore.azurewebsites.net/": true,
+    "https://ui.shadcn.com": true,
+    "https://www.schemastore.org/": true
   },
+  "docker.extension.enableComposeLanguageServer": false,
+  "window.commandCenter": false,
+  "makefile.configureOnOpen": true,
   "workbench.activityBar.location": "hidden",
-  "window.commandCenter": false
 }

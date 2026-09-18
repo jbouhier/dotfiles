@@ -181,7 +181,7 @@ alias prod='ssh prod'
 alias rook='ssh rook'
 
 # AI
-alias oc="opencode"
+alias oc="opencode2"
 alias cl="claude"
 
 # Mise - Tool version manager
@@ -270,9 +270,6 @@ export PATH="$PATH:/Users/jbouhier/.lmstudio/bin"
 # zsh tab completion
 autoload -Uz compinit && compinit
 
-# Mise
-eval "$(mise activate zsh)"
-
 # bun completions
 [ -s "/Users/jbouhier/.bun/_bun" ] && source "/Users/jbouhier/.bun/_bun"
 
@@ -281,4 +278,7 @@ eval "$(mise activate zsh)"
 # ! Delete this whole block to opt out — OpenKnowledge will not re-add it.
 [ -f "$HOME/.ok/env.sh" ] && . "$HOME/.ok/env.sh"
 # <<< open-knowledge cli <<<
+
+# Mise (kept last so its tool paths take precedence over other PATH edits)
+eval "$(mise activate zsh)"
 

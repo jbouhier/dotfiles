@@ -1,9 +1,9 @@
-format = "$directory$git_branch$character"
+format = "$directory$git_branch$character "
 add_newline = false
 
 [character]
-success_symbol = "❯"
-error_symbol = "❯"
+success_symbol = "❯ "
+error_symbol = "❯ "
 
 [git_branch]
 format = " on $symbol$branch "
