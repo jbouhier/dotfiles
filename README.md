@@ -1,17 +1,67 @@
 # dotfiles
 
-Here are my Linux config files.
-Feel free to try them out!
+macOS development environment, managed with [chezmoi](https://chezmoi.io).
 
 ## Setup
-`./install.sh`
+
+```sh
+git clone git@github.com:jbouhier/dotfiles.git ~/Projects/dotfiles
+~/Projects/dotfiles/install.sh
+```
+
+`install.sh` installs Homebrew + chezmoi, points `sourceDir` at this repo, and
+applies. Homebrew packages are installed from the tracked Brewfile by a chezmoi
+`run_onchange` script on first apply.
+
+## Layout
+
+```
+.chezmoiroot              # "home" — isolates source state from repo tooling
+home/                     # the actual dotfiles (chezmoi source state)
+  dot_zshrc               #   -> ~/.zshrc
+  dot_config/ghostty/     #   -> ~/.config/ghostty/
+  private_...             #   0600/0700 files
+  *.tmpl                  #   rendered per machine / from Keychain
+  .chezmoiscripts/        #   replaces manual install.sh package lists
+  dot_config/homebrew/Brewfile
+install.sh                # bootstrap for a fresh machine
+scripts/refresh-brewfile.sh
+vscode/                   # extension list + export/import helpers
+```
+
+## Secrets
+
+No credentials are stored in this repo. `~/.zshenv` and the fish secrets file
+are templates that pull from the macOS Keychain at apply time:
+
+```sh
+chezmoi secret keyring set --service=anthropic --user=api
+chezmoi secret keyring set --service=google    --user=gemini
+```
+
+## Homebrew
+
+Packages are declared in `home/dot_config/homebrew/Brewfile`. After installing
+or removing packages, regenerate it from the current machine:
+
+```sh
+./scripts/refresh-brewfile.sh
+git add home/dot_config/homebrew/Brewfile && git commit
+```
+
+`chezmoi apply` re-runs the installer only when that file actually changes.
+
+## Daily use
+
+```sh
+chezmoi add ~/.some-new-config   # start tracking a file
+chezmoi diff                     # preview what apply would change
+chezmoi apply                    # write source -> $HOME
+chezmoi update                   # git pull + apply
+chezmoi cd                       # shell in the source dir
+```
 
 ## Content
 
-- [VScode](https://code.visualstudio.com)
-- [Git](https://git-scm.com)
-- [Neovim](https://neovim.io)
-- [Oh My Zsh](https://ohmyz.sh)
-- scripts (zsh, fish, nushell)
-- Lots of aliases
-- Config for WezTerm and Ghostty
+Ghostty, WezTerm, zsh (+ Oh My Zsh, Powerlevel10k), fish, Nushell, Starship,
+mise, git, Neovim, Zed, OpenCode, VS Code Insiders.

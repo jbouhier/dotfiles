@@ -1,131 +1,52 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
+# Bootstrap these dotfiles on a fresh machine.
+#
+# Packages are NOT listed here -- they live in the tracked Brewfile and are
+# installed by chezmoi's run_onchange script on first apply. To refresh that
+# list from a machine, run ./scripts/refresh-brewfile.sh
+
 set -euo pipefail
 
-SCRIPT_DIR="${0:A:h}"
+REPO="${DOTFILES_REPO:-git@github.com:jbouhier/dotfiles.git}"
+DEST="${DOTFILES_DIR:-$HOME/Projects/dotfiles}"
 
-# ── Packages ──────────────────────────────────────────────────────────────────
+# ── 1. Homebrew (macOS) ───────────────────────────────────────────────────────
+if [ "$(uname -s)" = "Darwin" ] && ! command -v brew >/dev/null 2>&1; then
+    echo "→ Installing Homebrew..."
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
 
-cli=(
-  ag
-  bat
-  bottom
-  broot
-  ca-certificates
-  cheat
-  choose
-  cmake
-  cmake-docs
-  coreutils
-  curl
-  curlie
-  delta
-  docker-compose
-  dog
-  droid
-  duf
-  dust
-  exa
-  exiftool
-  fd
-  ffmpeg
-  fish
-  fmt
-  fzf
-  gcc
-  gemini-cli
-  gh
-  git
-  git-lfs
-  git-smart-checkout
-  glances
-  go
-  gping
-  httpie
-  hyperfine
-  img2pdf
-  jq
-  lsd
-  make
-  mcfly
-  mise
-  neofetch
-  neonctl
-  nushell
-  nvim
-  onefetch
-  opencode
-  podman
-  postgresql
-  processspy
-  procs
-  qpdf
-  ripgrep
-  rustup-init
-  sd
-  sqlite
-  sq
-  starship
-  stripe
-  tldr
-  tmux
-  usage
-  vf
-  wthrr
-  x264
-  x265
-  xh
-  yt-dlp
-  zoxide
-)
+# ── 2. chezmoi ────────────────────────────────────────────────────────────────
+if ! command -v chezmoi >/dev/null 2>&1; then
+    echo "→ Installing chezmoi..."
+    if command -v brew >/dev/null 2>&1; then
+        brew install chezmoi
+    else
+        sh -c "$(curl -fsLS get.chezmoi.io)" -- -b "$HOME/.local/bin"
+    fi
+fi
 
-casks=(
-  anythingllm
-  brave-browser
-  claude-code
-  ghostty
-  gitbutler
-  jan
-  lm-studio
-  notion
-  obs
-  obsidian
-  opencode-desktop
-  retroarch
-  tradingview
-  typora
-  vlc
-  wezterm
-  zed
-)
+# ── 3. Clone and point chezmoi at this repo ───────────────────────────────────
+if [ ! -d "$DEST/.git" ]; then
+    echo "→ Cloning dotfiles into $DEST..."
+    git clone "$REPO" "$DEST"
+fi
 
-fonts=(
-  font-fira-code-nerd-font
-  font-fira-mono-nerd-font
-  font-hack-nerd-font
-  font-jetbrains-mono-nerd-font
-  font-noto-sans-symbols-2
-)
+mkdir -p "$HOME/.config/chezmoi"
+printf 'sourceDir = "%s"\n' "$DEST" > "$HOME/.config/chezmoi/chezmoi.toml"
 
-# ── Install ───────────────────────────────────────────────────────────────────
+# ── 4. Apply (installs Brewfile packages on first run) ────────────────────────
+echo "→ Applying dotfiles..."
+chezmoi --source "$DEST" init --apply
 
-echo "→ Installing Homebrew..."
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+cat <<'EOF'
 
-echo "→ Installing CLI tools..."
-brew install $cli
+✓ Done.
 
-echo "→ Installing cask apps..."
-brew install --cask $casks
+Secrets are stored in the macOS Keychain, not in this repo. If API-key
+templates render empty, add them with:
 
-echo "→ Installing fonts..."
-brew install --cask $fonts
+  chezmoi secret keyring set --service=anthropic --user=api
+  chezmoi secret keyring set --service=google    --user=gemini
 
-echo "→ Installing Rust..."
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-
-echo "→ Copying dotfiles..."
-"$SCRIPT_DIR/dotfiles.sh"
-
-echo "→ Setting up mise runtimes..."
-"$SCRIPT_DIR/mise-setup.sh"
-
+EOF
