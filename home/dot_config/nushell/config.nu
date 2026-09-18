@@ -21,7 +21,7 @@ $env.PATH = ($env.PATH | prepend [
     "/opt/homebrew/bin",
     "/usr/local/bin",
     $"($env.HOME)/bin",
-    $"($env.HOME)/.cargo/env",
+    $"($env.HOME)/.cargo/bin",
 ])
 
 $env.config.buffer_editor = 'nvim'
@@ -32,7 +32,7 @@ alias npmc = npm config edit --global
 alias vsc = cd `~/Library/Application\ Support/Code\ -\ Insiders/User/`
 alias gitc = git config --global --edit
 alias lg = lazygit
-alias tmuxc = vi ~/.tumx.conf
+alias tmuxc = vi ~/.tmux.conf
 alias stumx = tmux source ~/.tmux.conf
 alias wok = cd ~/Projects/sales-furnace
 alias sc = jq .scripts package.json

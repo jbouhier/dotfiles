@@ -7,7 +7,10 @@ fish_add_path $HOME/.cargo/bin
 fish_add_path $HOME/.pyenv/shims
 
 ### Shell
-command /opt/homebrew/bin/nu
+# Do not launch another shell from fish's config. Starting nushell here runs a
+# REPL mid-`source` and aborts the rest of this file. Ghostty already starts
+# nushell directly via `command = /opt/homebrew/bin/nu` in
+# ~/.config/ghostty/config. To hand off interactively, run `exec nu` yourself.
 
 ### Environment Variables
 set -gx LANGUAGE en_US.UTF-8
@@ -28,7 +31,7 @@ if status is-interactive
 	alias lg="lazygit"
 	alias tmuxc="vim ~/.tmux.conf"
 	alias stumx="tmux source ~/.tmux.conf"
-	alias wok="cd ~/Projects/prep-me/"
+	alias wok="cd ~/Projects/sales-furnace/"
 	alias ws="windsurf"
 	alias sc="jq .scripts package.json"
 	alias pg="psql --host=localhost --dbname=eai_dev --username=postgres"
