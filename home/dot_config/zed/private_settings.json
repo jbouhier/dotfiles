@@ -7,6 +7,17 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "terminal": {
+    "scrollbar": {
+      "show": "auto"
+    }
+  },
+  "scrollbar": {
+    "axes": {
+      "horizontal": true
+    }
+  },
+  "cli_default_open_behavior": "new_window",
   "project_panel": {
     "dock": "left"
   },

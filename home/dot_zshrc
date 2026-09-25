@@ -198,12 +198,10 @@ alias b='brew'
 alias bs='brew search'
 alias bi='brew info'
 alias ba='brew install'
-alias bc='brew update'
-alias bu='brew upgrade'
-alias bup='bc && bu -y'
+alias bb='b update && b upgrade -y'
 alias br='brew remove'
 alias bl='brew list'
-alias bcc='brew cleanup'
+alias bc='brew cleanup'
 
 # Git
 alias gco="git checkout"
